@@ -1,0 +1,11 @@
+@(message: String)
+
+@layout.main("SHINKIN★CHANGE FAQ") {
+  <h3>@message</h3>
+  @if(session().get("loginUser") != null){
+    <br/>
+    <a class="login-link" href="@routes.FaqController.index">faq index</a>
+    <br/>
+    <a class="login-link" href="@routes.FaqController.create()">faq new</a>
+  }
+}
