@@ -4,17 +4,15 @@
 @layout.main("SHINKIN★CHANGE FAQ") {
   @if(id != null){
     @form(action = routes.FaqController.doUpdate, args = 'class -> "faq-form"){
-      @inputText(field = faqForm("title"), args = 'size -> 10)
-      @inputText(field = faqForm("question"), args = 'size -> 10)
-      @textarea(field = faqForm("answer"), args = 'rows -> 10, 'cols -> 50)
-      <input type="submit" id="submitLogin" class="btn" value="更新" />
+      @inputText(field = faqForm("title"), args = 'size -> 120)
+      @textarea(field = faqForm("question"), args = 'rows -> 20, 'cols -> 120)
+      <input type="submit" id="submitLogin" class="btn" value="質問を更新する" />
     }
   }else{
     @form(action = routes.FaqController.insert, args = 'class -> "faq-form"){
-      @inputText(field = faqForm("title"), args = 'size -> 10)
-      @inputText(field = faqForm("question"), args = 'size -> 10)
-      @textarea(field = faqForm("answer"), args = 'rows -> 10, 'cols -> 50)
-      <input type="submit" id="submitLogin" class="btn" value="投稿" />
+      @inputText(field = faqForm("title"), args = 'size -> 120)
+      @textarea(field = faqForm("question"), args = 'rows -> 20, 'cols -> 120)
+      <input type="submit" id="submitLogin" class="btn" value="質問を投稿する" />
     }
   }
 }

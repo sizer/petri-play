@@ -4,19 +4,15 @@
   <h4>faqList</h4>
   <table class="table">
     <tr>
-      <td>ID</td>
       <td>title</td>
-      <td>question</td>
-      <td>answer</td>
       <td>added_date</td>
+      <td>updated_date</td>
     </tr>
     @for(faq <- faqList){
       <tr>
-        <td>@faq.id</td>
         <td><a class="link" href="@routes.FaqController.show(faq.id)">@faq.title</a></td>
-        <td>@faq.question</td>
-        <td>@faq.answer</td>
         <td>@faq.added_date</td>
+        <td>@faq.updated_date</td>
       </tr>
     }
   </table>
