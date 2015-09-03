@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 import play.db.ebean.*;
+import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
 
@@ -10,13 +11,10 @@ import com.avaje.ebean.*;
  * Tag entity managed by Ebean
  */
 @Entity
-public class Tag extends Model {
-
-    private static final long serialVersionUID = 1L;
+public class Tag extends AbstractTrailModel {
 
 	  @Id
     public Long id;
-
     @Constraints.Required
     public String name;
 

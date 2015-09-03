@@ -5,14 +5,14 @@
   <table class="table">
     <tr>
       <td>title</td>
-      <td>added_date</td>
-      <td>updated_date</td>
+      <td>create_time</td>
+      <td>update_time</td>
     </tr>
     @for(faq <- faqList){
       <tr>
         <td><a class="link" href="@routes.FaqController.show(faq.id)">@faq.title</a></td>
-        <td>@faq.added_date</td>
-        <td>@faq.updated_date</td>
+        <td>@faq.create_time</td>
+        <td>@faq.update_time</td>
       </tr>
     }
   </table>

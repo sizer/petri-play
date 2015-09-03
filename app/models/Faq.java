@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * Faq entity managed by Ebean
  */
 @Entity
-public class Faq extends Model {
+public class Faq extends AbstractTrailModelfsa {
 
     private static final long serialVersionUID = 1L;
 
