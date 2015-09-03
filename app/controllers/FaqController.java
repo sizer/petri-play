@@ -25,7 +25,7 @@ public class FaqController extends Controller{
     if(f.hasErrors()){
       return ok(create.render(f, null));
     }else{
-      faqEntity.added_date = new Date();
+      faqEntity.create_time = new Date();
       faqEntity.save();
       return ok(faq.render(Faq.find.byId(faqEntity.id)));
     }
@@ -50,7 +50,7 @@ public class FaqController extends Controller{
     if(f.hasErrors()){
       return ok(create.render(f, faqEntity.id));
     }else{
-      faqEntity.updated_date = new Date();
+      faqEntity.update_time = new Date();
       faqEntity.save();
       return ok(faq.render(Faq.find.byId(faqEntity.id)));
     }
