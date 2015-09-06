@@ -1,15 +1,15 @@
-@(faqForm: Form[Faq], id: Long)
+@(faqForm: Form[Qanda], id: Long)
 @import helper._
 
 @layout.main("SHINKIN★CHANGE FAQ") {
   @if(id != null){
-    @form(action = routes.FaqController.doUpdate, args = 'class -> "faq-form"){
+    @form(action = routes.QandaController.doUpdate, args = 'class -> "faq-form"){
       @inputText(field = faqForm("title"), args = 'size -> 120)
       @textarea(field = faqForm("question"), args = 'rows -> 20, 'cols -> 120)
       <input type="submit" id="submitLogin" class="btn" value="質問を更新する" />
     }
   }else{
-    @form(action = routes.FaqController.insert, args = 'class -> "faq-form"){
+    @form(action = routes.QandaController.insert, args = 'class -> "faq-form"){
       @inputText(field = faqForm("title"), args = 'size -> 120)
       @textarea(field = faqForm("question"), args = 'rows -> 20, 'cols -> 120)
       <input type="submit" id="submitLogin" class="btn" value="質問を投稿する" />

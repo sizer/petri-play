@@ -1,15 +1,15 @@
-@(faq: Faq)
+@(faq: Qanda)
 
 @layout.main("SHINKIN★CHANGE FAQ") {
   <h2>@faq.title</h2>
   <div>
-    @faq.question
+    @faq.content
   </div>
   <div>
-    @faq.answer
+    @faq.is_question
   </div>
   <div>
     @faq.create_time
   </div>
-  <a class="link" href="@routes.FaqController.update(faq.id)">更新</a>
+  <a class="link" href="@routes.QandaController.update(faq.id)">更新</a>
 }

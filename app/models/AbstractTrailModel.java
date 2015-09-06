@@ -24,6 +24,6 @@ public abstract class AbstractTrailModel extends Model {
     @Constraints.Required
     public Integer update_user_id;
     @Constraints.Required
-		public Integer id_delete;
+		public Integer is_delete;
 
 }

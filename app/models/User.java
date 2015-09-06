@@ -21,6 +21,12 @@ public class User extends AbstractTrailModel {
 		public String password;
 		@Constraints.Required
 		public Integer is_active;
+		@OneToMany(cascade = CascadeType.ALL)
+		public List<Qanda> qAndAs = new ArrayList<Qanda>();
+		@OneToMany(cascade = CascadeType.ALL)
+		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
+		@ManyToMany
+    public List<Roll> rolls = new ArrayList<Roll>();
 
     /**
      * Generic query helper for entity User with id Long
