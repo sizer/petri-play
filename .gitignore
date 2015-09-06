@@ -15,4 +15,4 @@ dist
 /.settings
 /*.db
 .DS_Store
-/*.bak
+documents/db_documents/*.mwb.bak

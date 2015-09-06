@@ -1,4 +1,4 @@
-@(faqList: List[Faq])
+@(faqList: List[Qanda])
 
 @layout.main("SHINKIN★CHANGE FAQ") {
   <h4>faqList</h4>
@@ -10,7 +10,7 @@
     </tr>
     @for(faq <- faqList){
       <tr>
-        <td><a class="link" href="@routes.FaqController.show(faq.id)">@faq.title</a></td>
+        <td><a class="link" href="@routes.QandaController.show(faq.id)">@faq.title</a></td>
         <td>@faq.create_time</td>
         <td>@faq.update_time</td>
       </tr>
