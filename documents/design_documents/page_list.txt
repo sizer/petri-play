@@ -1,0 +1,16 @@
+page list
+  path                          name
+
+  /                             Q&A
+  /qandas                       新着の質問
+  /qandas/new                   質問する
+  /qandas/:id/:title            :title
+  /qandas/tagged/:tag_name      新着の':tag_name'質問
+  /users                        ユーザー
+  /users/new                    新しいアカウントの確認
+  /users/:id/:login_id          ユーザー: :login_id
+  /users/edit/:id               ユーザー - :login_id - 編集
+  /unanswered                   未回答の質問
+  /tags                         タグ
+  /tags/:tag_name               ':tag_name'タグ
+  /search?q=:keyword            ':keyword'を含む投稿
