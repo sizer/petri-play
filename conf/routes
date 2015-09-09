@@ -51,7 +51,7 @@ POST    /comments/:id/delete         controllers.CommentController.delete(id:Lon
 POST    /:qandas_id/evaluations      controllers.EvaluationController.insert(qandas_id:Long)
 # GET     /evaluations/:id             controllers.EvaluationController.show(id:Long)
 # GET     /evaluations/:id/edit        controllers.EvaluationController.edit(id:Long)
-POST    /:qandas_idevaluations/:id   controllers.EvaluationController.update(qandas_id:Long, id:Long)
+POST    /:qandas_id/evaluations/:id  controllers.EvaluationController.update(qandas_id:Long, id:Long)
 # POST    /evaluations/:id/delete      controllers.EvaluationController.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path

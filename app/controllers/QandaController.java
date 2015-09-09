@@ -36,14 +36,14 @@ public class QandaController extends Controller{
     return ok(faq.render(faqEntity));
   }
 
-  public static Result update(Long id){
+  public static Result edit(Long id){
     Form<Qanda> faqForm = new Form(Qanda.class);
     Qanda faqEntity = Qanda.find.byId(id);
     faqForm.fill(faqEntity);
     return ok(create.render(faqForm, faqEntity.id));
   }
 
-  public static Result doUpdate(){
+  public static Result update(Long id){
     Form<Qanda> f = new Form(Qanda.class).bindFromRequest();
     Qanda faqEntity = f.get();
 

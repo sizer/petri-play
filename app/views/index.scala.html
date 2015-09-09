@@ -4,7 +4,7 @@
   <h3>@message</h3>
   @if(session().get("loginUser") != null){
     <br/>
-    <a class="login-link" href="@routes.QandaController.index">faq index</a>
+    <a class="login-link" href="@routes.Application.index()">faq index</a>
     <br/>
     <a class="login-link" href="@routes.QandaController.create()">faq new</a>
   }
