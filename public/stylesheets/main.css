@@ -2,12 +2,16 @@
   padding: 2px;
   background-color: #377fbf;
   font-size: 12px;
-  height: 20px;
+  height: 30px;
 }
 
-.subHeader {
+.head-menu {
   background-color: yellow;
   height: 100px;
+}
+
+.head-button {
+  float: right;
 }
 
 .login {

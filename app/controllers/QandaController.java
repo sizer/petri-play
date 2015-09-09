@@ -5,7 +5,7 @@ import play.*;
 import play.mvc.*;
 import play.data.*;
 import models.Qanda;
-import views.html.faq.*;
+import views.html.qanda.*;
 
 public class QandaController extends Controller{
   public static Result index(){
@@ -27,13 +27,13 @@ public class QandaController extends Controller{
     }else{
       faqEntity.create_time = new Date();
       faqEntity.save();
-      return ok(faq.render(Qanda.find.byId(faqEntity.id)));
+      return ok(qanda.render(Qanda.find.byId(faqEntity.id)));
     }
   }
 
   public static Result show(Long id){
     Qanda faqEntity = Qanda.find.byId(id);
-    return ok(faq.render(faqEntity));
+    return ok(qanda.render(faqEntity));
   }
 
   public static Result edit(Long id){
@@ -52,11 +52,15 @@ public class QandaController extends Controller{
     }else{
       faqEntity.update_time = new Date();
       faqEntity.save();
-      return ok(faq.render(Qanda.find.byId(faqEntity.id)));
+      return ok(qanda.render(Qanda.find.byId(faqEntity.id)));
     }
   }
 
   public static Result delete(Long id){
+    return null;
+  }
+
+  public static Result search(String keyword){
     return null;
   }
 }

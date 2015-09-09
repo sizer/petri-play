@@ -10,7 +10,7 @@ POST    /login                       controllers.LoginController.login()
 GET     /logout                      controllers.LoginController.logout()
 
 # User data access set
-# GET     /users                       controllers.UserController.index()
+GET     /users                       controllers.UserController.index()
 GET     /users/new                   controllers.UserController.create()
 POST    /users                       controllers.UserController.insert()
 GET     /users/:id                   controllers.UserController.show(id:Long)
@@ -19,7 +19,7 @@ POST    /users/:id                   controllers.UserController.update(id:Long)
 POST    /users/:id/delete            controllers.UserController.delete(id:Long)
 
 # QandA data access set
-# GET     /qandas                      controllers.QandaController.index()
+GET     /qandas                      controllers.QandaController.index()
 GET     /qandas/new                  controllers.QandaController.create()
 POST    /qandas                      controllers.QandaController.insert()
 GET     /qandas/:id                  controllers.QandaController.show(id:Long)
@@ -53,6 +53,9 @@ POST    /:qandas_id/evaluations      controllers.EvaluationController.insert(qan
 # GET     /evaluations/:id/edit        controllers.EvaluationController.edit(id:Long)
 POST    /:qandas_id/evaluations/:id  controllers.EvaluationController.update(qandas_id:Long, id:Long)
 # POST    /evaluations/:id/delete      controllers.EvaluationController.delete(id:Long)
+
+# Search access set
+POST      /search/:keyword           controllers.QandaController.search(keyword:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                controllers.Assets.at(path="/public", file)
