@@ -6,25 +6,37 @@
     <head>
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("bootstrap/bootstrap.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("bootstrap/bootstrap.js")" type="text/javascript"></script>
     </head>
     <body>
-      <div class="header">
-        <span class="logo">
-          <a class="logo-pic" href="@routes.Application.index">@title</a>
-        </span>
-        <span class="login">
-          @if(session().get("loginUser") != null){
-            <span>Hello, @session().get("loginUser")</span>
-            <a class="logout-link" href="@routes.LoginController.logout">Logout</a>
-          }else{
-            <a class="login-link" href="@routes.LoginController.login">Login</a>
-          }
-        </span>
-      </div>
-      <div class="subHeader">
+      <form>
+        <div class="header">
+          <span class="logo">
+            <a class="logo-pic" href="@routes.Application.index">@title</a>
+          </span>
+          <span class="login">
+            @if(session().get("loginUser") != null){
+              Hello, @session().get("loginUser")
+              <a class="logout-link" href="@routes.LoginController.logout">Logout</a>
+            }else{
+              <a class="login-link" href="@routes.LoginController.login">Login</a>
+            }
+            <input type="text" />
+            <input type="submit" value="全文検索" />
+          </span>
+        </div>
+      </form>
+      <div class="head-menu">
         <span>@title</span>
+        <span class="head-button">
+          <a href="@routes.QandaController.index">質問</a>
+          <a href="@routes.TagController.index">タグ</a>
+          <a href="@routes.UserController.index">ユーザー</a>
+          <a href="@routes.QandaController.create">質問する</a>
+        </span>
       </div>
         @content
       <div class="footer">
