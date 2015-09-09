@@ -1,0 +1,37 @@
+page list
+  path                        file_name            name
+
+  /                           index.html           TOP
+  /qandas                     qanda/index.html     新着の質問
+  /qandas/new                 qanda/create.html    質問する
+  /qandas/:id/:title          qanda/show.html      :title
+  /qandas/tagged/:tag_name    qanda/index.html     新着の':tag_name'質問
+  /users                      user/index.html      ユーザー
+  /users/new                  user/create.html     新しいアカウントの確認
+  /users/:id/:login_id        user/show.html       ユーザー: :login_id
+  /users/edit/:id             user/edit.html       ユーザー - :login_id - 編集
+  /unanswered                 qanda/index.html     未回答の質問
+  /tags                       tag/index.html       タグ
+  /tags/:tag_name             tag/show.html        ':tag_name'タグ
+  /search?q=:keyword          search/result.html   ':keyword'を含む投稿
+
+Page Link List
+  /(head menu)
+    /qandas
+    /tags
+    /users
+    /unanswered
+    /qandas/new
+
+  /(side menu)
+    /qandas/tagged/:tag_name
+
+  /(content)
+    /qandas/:id/:title
+    /qandas/tagged/:tag_name
+    /users/:id/:login_id
+
+  /qandas
+    /qandas/tagged/:tag_name
+    /users/:id/:login_id
+    

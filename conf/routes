@@ -3,19 +3,56 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                            controllers.Application.index()
 
-GET     /login                      controllers.LoginController.index()
-POST    /login                      controllers.LoginController.login()
-GET     /logout                     controllers.LoginController.logout()
+GET     /login                       controllers.LoginController.index()
+POST    /login                       controllers.LoginController.login()
+GET     /logout                      controllers.LoginController.logout()
 
-GET     /qanda                        controllers.QandaController.index()
-GET     /qanda/create                 controllers.QandaController.create()
-POST    /qanda/insert                 controllers.QandaController.insert()
-GET     /qanda/:id                    controllers.QandaController.show(id:Long)
-GET     /qanda/:id/update             controllers.QandaController.update(id:Long)
-POST    /qanda/doUpdate               controllers.QandaController.doUpdate()
-POST    /qanda/:id/delete             controllers.QandaController.delete(id:Long)
+# User data access set
+# GET     /users                       controllers.UserController.index()
+GET     /users/new                   controllers.UserController.create()
+POST    /users                       controllers.UserController.insert()
+GET     /users/:id                   controllers.UserController.show(id:Long)
+GET     /users/:id/edit              controllers.UserController.edit(id:Long)
+POST    /users/:id                   controllers.UserController.update(id:Long)
+POST    /users/:id/delete            controllers.UserController.delete(id:Long)
+
+# QandA data access set
+# GET     /qandas                      controllers.QandaController.index()
+GET     /qandas/new                  controllers.QandaController.create()
+POST    /qandas                      controllers.QandaController.insert()
+GET     /qandas/:id                  controllers.QandaController.show(id:Long)
+GET     /qandas/:id/edit             controllers.QandaController.edit(id:Long)
+POST    /qandas/:id                  controllers.QandaController.update(id:Long)
+POST    /qandas/:id/delete           controllers.QandaController.delete(id:Long)
+
+# Tag data access set
+GET     /tags                        controllers.TagController.index()
+GET     /tags/new                    controllers.TagController.create()
+POST    /tags                        controllers.TagController.insert()
+GET     /tags/:id                    controllers.TagController.show(id:Long)
+GET     /tags/:id/edit               controllers.TagController.edit(id:Long)
+POST    /tags/:id                    controllers.TagController.update(id:Long)
+POST    /tags/:id/delete             controllers.TagController.delete(id:Long)
+
+# Comment data access set
+# GET     /comments                    controllers.CommentController.index()
+GET     /comments/new                controllers.CommentController.create()
+POST    /comments                    controllers.CommentController.insert()
+GET     /comments/:id                controllers.CommentController.show(id:Long)
+GET     /comments/:id/edit           controllers.CommentController.edit(id:Long)
+POST    /comments/:id                controllers.CommentController.update(id:Long)
+POST    /comments/:id/delete         controllers.CommentController.delete(id:Long)
+
+# Evaluation data access set
+# GET     /evaluations                 controllers.EvaluationController.index()
+# GET     /evaluations/new             controllers.EvaluationController.create()
+POST    /:qandas_id/evaluations      controllers.EvaluationController.insert(qandas_id:Long)
+# GET     /evaluations/:id             controllers.EvaluationController.show(id:Long)
+# GET     /evaluations/:id/edit        controllers.EvaluationController.edit(id:Long)
+POST    /:qandas_id/evaluations/:id  controllers.EvaluationController.update(qandas_id:Long, id:Long)
+# POST    /evaluations/:id/delete      controllers.EvaluationController.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                controllers.Assets.at(path="/public", file)
