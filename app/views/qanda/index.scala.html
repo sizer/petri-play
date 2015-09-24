@@ -1,19 +1,7 @@
-@(faqList: List[Qanda])
+@(qandaList: List[Qanda])
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
-  <h4>faqList</h4>
-  <table class="table">
-    <tr>
-      <td>title</td>
-      <td>create_time</td>
-      <td>update_time</td>
-    </tr>
-    @for(faq <- faqList){
-      <tr>
-        <td><a class="link" href="@routes.QandaController.show(faq.id)">@faq.title</a></td>
-        <td>@faq.create_time</td>
-        <td>@faq.update_time</td>
-      </tr>
-    }
-  </table>
+  <h4>qandaList</h4>
+  @helpers.qandaSummary(qandaList)
 }
