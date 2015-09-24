@@ -1,18 +1,28 @@
-@(faqList: List[Qanda])
+@(qandaList: List[Qanda])
 
 @layout.main("QANDA") {
-  <h4>faqList</h4>
+  <h4>qandaList</h4>
   <table class="table">
     <tr>
+      <td>evaluations</td>
+      <td>qandas</td>
       <td>title</td>
+      <td>tags</td>
       <td>create_time</td>
       <td>update_time</td>
     </tr>
-    @for(faq <- faqList){
+    @for(qanda <- qandaList){
       <tr>
-        <td><a class="link" href="@routes.QandaController.show(faq.id)">@faq.title</a></td>
-        <td>@faq.create_time</td>
-        <td>@faq.update_time</td>
+        <td>@qanda.evaluations.size()票</td>
+        <td>@qanda.qandas.size()回答</td>
+        <td><a class="link" href="@routes.QandaController.show(qanda.id)">@qanda.title</a></td>
+        <td>
+          @for(tag <- qanda.tags){
+            @tag.name
+          }
+        </td>
+        <td>@qanda.create_time</td>
+        <td>@qanda.update_time</td>
       </tr>
     }
   </table>
