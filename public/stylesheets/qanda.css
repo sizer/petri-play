@@ -1,0 +1,38 @@
+.qanda-summary {
+  width: 730px;
+  height: 75px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.qanda-summary .evaluations {
+  width: 50px;
+  height: 50px;
+  padding: 5px 5px 5px 5px;
+  float: left;
+}
+.qanda-summary .comments {
+  width: 50px;
+  height: 50px;
+  padding: 5px 5px 5px 5px;
+  float: left;
+}
+.qanda-summary .summary {
+  width: 530px;
+  height: 55px;
+  float: left;
+}
+.summary .title {
+  width: 530px;
+  height: 20px;
+}
+.summary .tags {
+  float: left;
+}
+.summary .createtime {
+  float: right;
+}
+.summary .updatetime {
+  float: right;
+}
