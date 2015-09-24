@@ -32,13 +32,15 @@
       <div class="head-menu">
         <span>@title</span>
         <span class="head-button">
-          <a href="@routes.QandaController.index">質問</a>
-          <a href="@routes.TagController.index">タグ</a>
-          <a href="@routes.UserController.index">ユーザー</a>
-          <a href="@routes.QandaController.create">質問する</a>
+          <a class="btn btn-default btn-sm" href="@routes.QandaController.index">質問</a>
+          <a class="btn btn-default btn-sm" href="@routes.TagController.index">タグ</a>
+          <a class="btn btn-default btn-sm" href="@routes.UserController.index">ユーザー</a>
+          <a class="btn btn-default btn-sm" href="@routes.QandaController.create">質問する</a>
         </span>
       </div>
+      <div class="content">
         @content
+      </div>
       <div class="footer">
         this is footer.
       </div>
