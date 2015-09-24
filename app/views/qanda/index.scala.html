@@ -3,20 +3,5 @@
 
 @layout.main("QANDA") {
   <h4>qandaList</h4>
-  @for(qanda <- qandaList){
-    <div class="qanda-summary">
-      <div class="evaluations">@qanda.evaluations.size()票</div>
-      <div class="comments">@qanda.qandas.size()回答</div>
-      <div class="summary">
-        <div class="title"><a class="link" href="@routes.QandaController.show(qanda.id)">@qanda.title</a></div>
-        <div class="tags">
-          @for(tag <- qanda.tags){
-            @tag.name
-          }
-        </div>
-        <div class="createtime">@qanda.create_time</div>
-        <div class="updatetime">@qanda.update_time</div>
-      </div>
-    </div>
-  }
+  @helpers.qandaSummary(qandaList)
 }
