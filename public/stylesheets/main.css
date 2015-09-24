@@ -1,13 +1,21 @@
 .header {
-  padding: 2px;
+  padding-top: 2px;
+  padding-right: 5.5%;
+  padding-left:  5.5%;
   background-color: #377fbf;
   font-size: 12px;
-  height: 30px;
+  height: 31px;
 }
 
 .head-menu {
+  padding-right: 5.5%;
+  padding-left:  5.5%;
   background-color: yellow;
   height: 100px;
+}
+
+.head-menu span {
+  margin-top: 33px;
 }
 
 .head-button {
@@ -16,6 +24,10 @@
 
 .login {
   float: right;
+}
+
+.content {
+  margin-left: 5.5%;
 }
 
 .footer {
