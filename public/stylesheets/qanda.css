@@ -11,28 +11,30 @@
   height: 50px;
   padding: 5px 5px 5px 5px;
   float: left;
+  text-align: center;
 }
 .qanda-summary .comments {
   width: 50px;
   height: 50px;
   padding: 5px 5px 5px 5px;
   float: left;
+  text-align: center;
 }
 .qanda-summary .summary {
   width: 530px;
   height: 55px;
   float: left;
 }
-.summary .title {
+.qanda-summary .summary .title {
   width: 530px;
   height: 20px;
 }
-.summary .tags {
+.qanda-summary .summary .tags {
   float: left;
 }
-.summary .createtime {
+.qanda-summary .summary .updatetime {
   float: right;
 }
-.summary .updatetime {
+.qanda-summary .summary .updateuser {
   float: right;
 }
