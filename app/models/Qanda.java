@@ -35,4 +35,10 @@ public class Qanda extends AbstractTrailModel {
      */
     public static Finder<Long,Qanda> find = new Finder<Long,Qanda>(Long.class, Qanda.class);
 
+		/**
+		 * is_question=1をキーに、QANDAリストを取得する
+		 */
+		public static List<Quanda> getQuestions(boolean isQuestion){
+			this.find.where
+		}
 }
