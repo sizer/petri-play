@@ -2,8 +2,8 @@
 
 @for(qanda <- qandaList){
   <div class="qanda-summary">
-    <div class="evaluations">@qanda.evaluations.size()票</div>
-    <div class="comments">@qanda.qandas.size()回答</div>
+    <div class="evaluations">@qanda.evaluations.size()<br/>票</div>
+    <div class="comments">@qanda.qandas.size()<br/>回答</div>
     <div class="summary">
       <div class="title"><a class="link" href="@routes.QandaController.show(qanda.id)">@qanda.title</a></div>
       <div class="tags">
@@ -11,8 +11,8 @@
           @tag.name
         }
       </div>
-      <div class="createtime">@qanda.create_time</div>
-      <div class="updatetime">@qanda.update_time</div>
+      <div class="updateuser"><a class="link" href="@routes.UserController.show(qanda.update_user_id.longValue())">@qanda.update_user_id</a></div>
+      <div class="updatetime">更新日時: @qanda.getSinceLastUpdate()</div>
     </div>
   </div>
 }
