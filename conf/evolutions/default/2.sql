@@ -162,7 +162,7 @@ insert into qanda_tag (qanda_id, tag_id)
 delete from comment;
 delete from evaluation;
 delete from user_roll;
-delete from quanda_tag;
+delete from qanda_tag;
 delete from qanda;
 delete from roll;
 delete from tag;

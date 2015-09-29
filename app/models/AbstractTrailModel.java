@@ -6,6 +6,7 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
+import services.util.DateUtil;
 
 /**
  * abstract model defining common column
@@ -26,4 +27,10 @@ public abstract class AbstractTrailModel extends Model {
     @Constraints.Required
 		public Integer is_delete;
 
+  /**
+   * 最終更新からの経過時間を取得する。
+   */
+  public String getSinceLastUpdate(){
+    return DateUtil.getSince(update_time);
+  }
 }
