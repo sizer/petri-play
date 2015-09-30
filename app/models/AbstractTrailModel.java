@@ -29,8 +29,9 @@ public abstract class AbstractTrailModel extends Model {
 
   /**
    * 最終更新からの経過時間を取得する。
+   * @return 最終更新からの経過時間
    */
   public String getSinceLastUpdate(){
-    return DateUtil.getSince(update_time);
+    return DateUtil.howLongFromNow(update_time);
   }
 }

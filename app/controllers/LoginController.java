@@ -5,8 +5,7 @@ import play.mvc.*;
 import play.data.*;
 import views.html.*;
 import views.html.login.*;
-import services.Authenticator;
-import services.impl.SimpleAuthenticator;
+import services.SimpleAuthenticator;
 
 public class LoginController extends Controller {
 
@@ -15,7 +14,7 @@ public class LoginController extends Controller {
     public String pass;
   }
 
-  private static Authenticator auth = new SimpleAuthenticator();
+  private static SimpleAuthenticator auth = new SimpleAuthenticator();
 
   public static Result index(){
     Form<LoginForm> loginForm = new Form(LoginForm.class);

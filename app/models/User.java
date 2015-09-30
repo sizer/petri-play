@@ -33,4 +33,8 @@ public class User extends AbstractTrailModel {
      */
     public static Finder<Long,User> find = new Finder<Long,User>(Long.class, User.class);
 
+		public static String getUserName(Long id){
+			return find.byId(id).name;
+		}
+
 }

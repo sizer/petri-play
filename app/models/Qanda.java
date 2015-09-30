@@ -38,8 +38,7 @@ public class Qanda extends AbstractTrailModel {
 		/**
 		 * is_question=1をキーに、QANDAリストを取得する
 		 */
-		public static List<Qanda> getQuestions(boolean isQuestion){
-			return null;
-//			this.find.where
+		public static List<Qanda> getQuestions(){
+			return find.where().eq("is_question", 1).findList();
 		}
 }
