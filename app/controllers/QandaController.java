@@ -9,7 +9,7 @@ import views.html.qanda.*;
 
 public class QandaController extends Controller{
   public static Result index(){
-    List<Qanda> faqList = Qanda.find.all();
+    List<Qanda> faqList = Qanda.getQuestions();
     return ok(index.render(faqList));
   }
 

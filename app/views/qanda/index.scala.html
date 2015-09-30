@@ -2,6 +2,10 @@
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
-  <h4>qandaList</h4>
-  @helpers.qandaSummary(qandaList)
+  <h4>質問一覧</h4>
+  @if(qandaList.isEmpty()){
+    <h1>現在質問は投稿されていません。</h1>
+  }else{
+    @helpers.qandaSummary(qandaList)
+  }
 }
