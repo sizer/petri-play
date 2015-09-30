@@ -5,6 +5,7 @@ import play.*;
 import play.mvc.*;
 import play.data.*;
 import models.Qanda;
+import models.QandaForm;
 import views.html.qanda.*;
 
 public class QandaController extends Controller{
@@ -14,13 +15,13 @@ public class QandaController extends Controller{
   }
 
   public static Result create(){
-    Form<Qanda> faqForm = new Form(Qanda.class);
+    Form<QandaForm> faqForm = new Form(QandaForm.class);
     return ok(create.render(faqForm, null));
   }
 
   public static Result insert(){
-    Form<Qanda> f = new Form(Qanda.class).bindFromRequest();
-    Qanda faqEntity = f.get();
+    Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
+    QandaForm faqEntity = f.get();
 
     if(f.hasErrors()){
       return ok(create.render(f, null));
@@ -37,15 +38,15 @@ public class QandaController extends Controller{
   }
 
   public static Result edit(Long id){
-    Form<Qanda> faqForm = new Form(Qanda.class);
-    Qanda faqEntity = Qanda.find.byId(id);
+    Form<QandaForm> faqForm = new Form(QandaForm.class);
+    QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
     faqForm.fill(faqEntity);
     return ok(create.render(faqForm, faqEntity.id));
   }
 
   public static Result update(Long id){
-    Form<Qanda> f = new Form(Qanda.class).bindFromRequest();
-    Qanda faqEntity = f.get();
+    Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
+    QandaForm faqEntity = f.get();
 
     if(f.hasErrors()){
       return ok(create.render(f, faqEntity.id));

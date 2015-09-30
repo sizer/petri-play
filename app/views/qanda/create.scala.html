@@ -1,4 +1,4 @@
-@(faqForm: Form[Qanda], id: Long)
+@(faqForm: Form[QandaForm], id: Long)
 @import helper._
 
 @layout.main("QANDA") {
@@ -6,12 +6,14 @@
     @form(action = routes.QandaController.update(1), args = 'class -> "faq-form"){
       @inputText(field = faqForm("タイトル"), args = 'size -> 120)
       @textarea(field = faqForm("質問"), args = 'rows -> 20, 'cols -> 120)
+      @inputText(field = faqForm("タグ"), args = 'size -> 120)(shared.petriFieldConstructor, implicitly[Lang])
       <input type="submit" id="submitLogin" class="btn" value="質問を更新する" />
     }
   }else{
     @form(action = routes.QandaController.insert, args = 'class -> "faq-form"){
       @inputText(field = faqForm("タイトル"), args = 'size -> 120)(shared.petriFieldConstructor, implicitly[Lang])
       @textarea(field = faqForm("質問"), args = 'rows -> 20, 'cols -> 120)
+      @inputText(field = faqForm("タグ"), args = 'size -> 120)(shared.petriFieldConstructor, implicitly[Lang])
       <input type="submit" id="submitLogin" class="btn" value="質問を投稿する" />
     }
   }
