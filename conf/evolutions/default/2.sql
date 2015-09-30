@@ -62,7 +62,7 @@ insert into user (id, name, password, is_active, create_time, create_user_id, up
 
 -- middle table
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (1, 1, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (1, 1, 1, null, 'very long long long 長いタイトル', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (2, 2, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
@@ -72,13 +72,13 @@ insert into qanda (id, user_id, is_question, qanda_id, title, content, create_ti
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (5, 5, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (6, 6, 0, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (6, 6, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (7, 7, 0, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (7, 7, 0, 1, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (8, 8, 0, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (8, 8, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (9, 9, 0, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (9, 9, 0, 4, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 
 -- most lowest table
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
@@ -88,15 +88,15 @@ insert into comment (id, qanda_id, comment, create_time, create_user_id, update_
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (3, 3, 'comment3','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (4, 4, 'comment4','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (4, 1, 'comment4','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (5, 5, 'comment5','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (6, 6, 'comment6','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (7, 7, 'comment7','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (7, 6, 'comment7','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (8, 8, 'comment8','2015-08-01', 1, '2015-09-01', 1, 0);
+  values (8, 6, 'comment8','2015-08-01', 1, '2015-09-01', 1, 0);
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (9, 9, 'comment9','2015-08-01', 1, '2015-09-01', 1, 0);
 
@@ -105,19 +105,19 @@ insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (2, 2, 2, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (3, 3, 3, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (3, 3, 1, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
   values (4, 4, 4, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (5, 5, 5, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (5, 5, 5, 0,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (6, 6, 6, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (6, 6, 1, 0,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (7, 7, 7, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (7, 7, 7, 0,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (8, 8, 8, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (8, 8, 3, 0,'2015-08-01', 1, '2015-09-01', 1, 0);
 insert into evaluation (id, user_id, qanda_id, is_good, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (9, 9, 9, 1,'2015-08-01', 1, '2015-09-01', 1, 0);
+  values (9, 9, 9, 0,'2015-08-01', 1, '2015-09-01', 1, 0);
 
 insert into user_roll (user_id, roll_id)
   values (1, 1);
@@ -143,19 +143,19 @@ insert into qanda_tag (qanda_id, tag_id)
 insert into qanda_tag (qanda_id, tag_id)
   values (2, 2);
 insert into qanda_tag (qanda_id, tag_id)
-  values (3, 3);
+  values (1, 3);
 insert into qanda_tag (qanda_id, tag_id)
   values (4, 4);
 insert into qanda_tag (qanda_id, tag_id)
-  values (5, 5);
+  values (3, 5);
 insert into qanda_tag (qanda_id, tag_id)
-  values (6, 6);
+  values (2, 6);
 insert into qanda_tag (qanda_id, tag_id)
-  values (7, 7);
+  values (1, 4);
 insert into qanda_tag (qanda_id, tag_id)
-  values (8, 8);
+  values (1, 8);
 insert into qanda_tag (qanda_id, tag_id)
-  values (9, 9);
+  values (5, 9);
 
 # --- !Downs
 
