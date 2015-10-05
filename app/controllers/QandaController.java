@@ -15,17 +15,22 @@ public class QandaController extends Controller{
   }
 
   public static Result create(){
-    Form<QandaForm> faqForm = new Form(QandaForm.class);
-    return ok(create.render(faqForm, null));
+    Form<QandaForm> f = new Form(QandaForm.class);
+    Map<String, String> map = new HashMap<>();
+    map.put("is_question", "1");
+    f = f.bind(map);
+    System.out.println(f);
+    return ok(create.render(f, null));
   }
 
   public static Result insert(){
     Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
-    QandaForm faqEntity = f.get();
+    System.out.println(f);
 
     if(f.hasErrors()){
       return ok(create.render(f, null));
     }else{
+      QandaForm faqEntity = f.get();
       faqEntity.create_time = new Date();
       faqEntity.save();
       return ok(qanda.render(Qanda.find.byId(faqEntity.id)));

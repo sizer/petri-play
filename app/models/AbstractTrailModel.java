@@ -14,6 +14,10 @@ import services.util.DateUtil;
 @Entity
 public abstract class AbstractTrailModel extends Model {
 
+    public static final int CREATE = 1;
+    public static final int UPDATE = 2;
+    public static final int DELETE = 3;
+
     @Constraints.Required
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date create_time;
@@ -33,5 +37,30 @@ public abstract class AbstractTrailModel extends Model {
    */
   public String getSinceLastUpdate(){
     return DateUtil.howLongFromNow(update_time);
+  }
+
+  /**
+   * <pre>
+   * 追跡情報をセットする。
+   * 設定されるカラム...create_time/create_user_id.update_time/update_user_id
+   * </pre>
+   */
+  public void setTrailInfo(int code){
+
+    switch(code) {
+      case CREATE:
+        create_time = DateUtil.now();
+        create_user_id = 1;
+      case UPDATE:
+      case DELETE:
+        update_time = DateUtil.now();
+        update_user_id = 1;
+    }
+
+    if(code == DELETE){
+      is_delete = 1;
+    }else{
+      is_delete = 0;
+    }
   }
 }
