@@ -1,8 +1,24 @@
 package services.util;
 
-import java.util.*;
+import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class DateUtil{
+
+  private static LocalDateTime now;
+
+  /**
+   * 現在時刻を取得する
+   * @return 現在時刻
+   */
+  public static Date now(){
+    if(now ==null){
+      now = LocalDateTime.now();;
+    }
+    Date retDate = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
+    return retDate;
+  }
 
   /**
    * 引数の日付から経過した時間を算出し、"○○前"表記で返す。

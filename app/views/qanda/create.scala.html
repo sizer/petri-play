@@ -14,6 +14,7 @@
       @inputText(field = faqForm("title"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @textarea(field = faqForm("content"), args = 'rows -> 20, 'cols -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @inputText(field = faqForm("inputTags"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])
+      <input type="hidden" value=@faqForm("is_question").value name="is_question" />
       <input type="submit" id="submitLogin" class="btn" value="質問を投稿する" />
     }
   }
