@@ -16,10 +16,6 @@ public class QandaController extends Controller{
 
   public static Result create(){
     Form<QandaForm> f = new Form(QandaForm.class);
-    Map<String, String> map = new HashMap<>();
-    map.put("is_question", "1");
-    f = f.bind(map);
-    System.out.println(f);
     return ok(create.render(f, null));
   }
 
@@ -31,9 +27,11 @@ public class QandaController extends Controller{
       return ok(create.render(f, null));
     }else{
       QandaForm faqEntity = f.get();
-      faqEntity.create_time = new Date();
-      faqEntity.save();
-      return ok(qanda.render(Qanda.find.byId(faqEntity.id)));
+      Qanda qandaEntity = new Qanda(faqEntity);
+      qandaEntity.setTrailInfo(Qanda.INSERT);
+      qandaEntity.isQuestion = 1;
+      qandaEntity.save();
+      return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
     }
   }
 
@@ -46,7 +44,7 @@ public class QandaController extends Controller{
     Form<QandaForm> faqForm = new Form(QandaForm.class);
     QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
     faqForm.fill(faqEntity);
-    return ok(create.render(faqForm, faqEntity.id));
+    return ok(create.render(faqForm, id));
   }
 
   public static Result update(Long id){
@@ -54,11 +52,11 @@ public class QandaController extends Controller{
     QandaForm faqEntity = f.get();
 
     if(f.hasErrors()){
-      return ok(create.render(f, faqEntity.id));
+      return ok(create.render(f, id));
     }else{
-      faqEntity.update_time = new Date();
-      faqEntity.save();
-      return ok(qanda.render(Qanda.find.byId(faqEntity.id)));
+      Qanda qandaEntity = Qanda.find.byId(id);
+      qandaEntity.save();
+      return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
     }
   }
 

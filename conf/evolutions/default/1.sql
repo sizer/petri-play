@@ -30,7 +30,6 @@ create table evaluation (
 
 create table qanda (
   id                        bigint         not null,
-  user_id                   bigint         not null,
   is_question               integer        not null,
   qanda_id                  bigint,
   title                     varchar(2000),
@@ -102,7 +101,6 @@ alter table comment    add constraint fk_comment_qanda_1    foreign key (qanda_i
 alter table evaluation add constraint fk_evaluation_user_1  foreign key (qanda_id) references qanda (id) on delete restrict on update restrict;
 alter table evaluation add constraint fk_evaluation_user_2  foreign key (user_id)  references user (id)  on delete restrict on update restrict;
 alter table qanda      add constraint fk_qanda_user_1       foreign key (qanda_id) references qanda (id) on delete restrict on update restrict;
-alter table qanda      add constraint fk_qanda_user_2       foreign key (user_id)  references user (id)  on delete restrict on update restrict;
 alter table qanda_tag  add constraint fk_qanda_tag_qanda_01 foreign key (qanda_id) references qanda (id) on delete restrict on update restrict;
 alter table qanda_tag  add constraint fk_qanda_tag_tag_02   foreign key (tag_id)   references tag (id)   on delete restrict on update restrict;
 alter table user_roll  add constraint fk_user_roll_user_01  foreign key (user_id)  references user (id)  on delete restrict on update restrict;
@@ -110,7 +108,6 @@ alter table user_roll  add constraint fk_user_roll_roll_02  foreign key (roll_id
 
 create index ix_comment_qanda_1   on comment (qanda_id);
 create index ix_evaluation_user_2 on evaluation (user_id);
-create index ix_qanda_user_3      on qanda (user_id);
 
 # --- !Downs
 

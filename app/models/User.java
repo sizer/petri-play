@@ -22,8 +22,6 @@ public class User extends AbstractTrailModel {
 		@Constraints.Required
 		public Integer is_active;
 		@OneToMany(cascade = CascadeType.ALL)
-		public List<Qanda> qAndAs = new ArrayList<Qanda>();
-		@OneToMany(cascade = CascadeType.ALL)
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
 		@ManyToMany
     public List<Roll> rolls = new ArrayList<Roll>();
