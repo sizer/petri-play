@@ -6,11 +6,7 @@
     <div class="comments">@qanda.qandas.size()<br/>回答</div>
     <div class="summary">
       <div class="title"><a class="link" href="@routes.QandaController.show(qanda.id)">@qanda.title</a></div>
-      <div class="tags">
-        @for(tag <- qanda.tags){
-          @tag.name
-        }
-      </div>
+      @tagList(qanda.tags)
       <div class="updateuser"><a class="link" href="@routes.UserController.show(qanda.update_user_id.longValue())">@qanda.update_user_id</a></div>
       <div class="updatetime">
         @if(qanda.qandas.isEmpty()){質問日時}else{更新日時}: @qanda.getSinceLastUpdate()

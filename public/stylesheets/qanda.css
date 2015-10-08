@@ -38,3 +38,13 @@
 .qanda-summary .summary .updateuser {
   float: right;
 }
+.tag-box {
+  color: #3e6d8e;
+  background: #e4edf4;
+  border: #e4edf4;
+  margin: 2px 2px 2px 0;
+  padding: 1px 1px;
+  height: 20px;
+  float: left;
+  cursor: pointer;
+}

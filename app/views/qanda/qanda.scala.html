@@ -1,4 +1,5 @@
 @(faq: Qanda)
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
   <h2>@faq.title</h2>
@@ -10,6 +11,16 @@
   </div>
   <div>
     @faq.create_time
+  </div>
+  <div>
+    @faq.evaluations.size()票
+  </div>
+  @helpers.tagList(faq.tags)
+  <div class="updatetime">
+    @if(faq.qandas.isEmpty()){質問日時}else{更新日時}: @faq.getSinceLastUpdate()
+  </div>
+  <div>
+    @faq.create_user_id
   </div>
   <a class="link" href="@routes.QandaController.update(faq.id)">更新</a>
 }
