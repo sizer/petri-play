@@ -48,3 +48,26 @@
   float: left;
   cursor: pointer;
 }
+.qanda-main {
+  width: 730px;
+}
+.qanda-main .evaluation {
+  width: 61px;
+  text-align: center;
+  padding-right: 15px;
+  vertical-align: top;
+}
+.vote-up {
+  width: 40px;
+  height: 30px;
+  display: block;
+  margin: 0 3px 2px 3px;
+}
+.vote-down {
+  width: 40px;
+  height: 30px;
+  display: block;
+  margin: 2px 3px 0 3px;
+}
+.vote {
+}
