@@ -53,4 +53,13 @@ public class Qanda extends AbstractTrailModel {
 		public static List<Qanda> getQuestions(){
 			return find.where().eq("isQuestion", 1).findList();
 		}
+
+		/**
+		 * フォームの保持する情報をEntityにセットする。
+		 * @param form Qandaフォーム
+		 */
+		public void setForm(QandaForm form){
+			this.title = form.title;
+			this.content = form.content;
+		}
 }

@@ -21,7 +21,6 @@ public class QandaController extends Controller{
 
   public static Result insert(){
     Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
-    System.out.println(f);
 
     if(f.hasErrors()){
       return ok(create.render(f, null));
@@ -43,18 +42,22 @@ public class QandaController extends Controller{
   public static Result edit(Long id){
     Form<QandaForm> faqForm = new Form(QandaForm.class);
     QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
-    faqForm.fill(faqEntity);
+    faqForm = faqForm.fill(faqEntity);
     return ok(create.render(faqForm, id));
   }
 
   public static Result update(Long id){
     Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
-    QandaForm faqEntity = f.get();
 
     if(f.hasErrors()){
+      System.out.println("hasError");
+      System.out.println(f);      
       return ok(create.render(f, id));
     }else{
+      QandaForm faqEntity = f.get();
       Qanda qandaEntity = Qanda.find.byId(id);
+      qandaEntity.setForm(faqEntity);
+      qandaEntity.setTrailInfo(Qanda.UPDATE);
       qandaEntity.save();
       return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
     }
