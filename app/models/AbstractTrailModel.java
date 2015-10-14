@@ -6,7 +6,7 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
-import services.util.DateUtil;
+import utils.DateUtil;
 
 /**
  * abstract model defining common column
