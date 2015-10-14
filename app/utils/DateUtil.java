@@ -1,4 +1,4 @@
-package services.util;
+package utils;
 
 import java.util.Date;
 import java.time.LocalDateTime;

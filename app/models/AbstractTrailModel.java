@@ -6,7 +6,7 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
-import services.util.DateUtil;
+import utils.DateUtil;
 
 /**
  * abstract model defining common column
@@ -14,7 +14,7 @@ import services.util.DateUtil;
 @Entity
 public abstract class AbstractTrailModel extends Model {
 
-    public static final int CREATE = 1;
+    public static final int INSERT = 1;
     public static final int UPDATE = 2;
     public static final int DELETE = 3;
 
@@ -48,7 +48,7 @@ public abstract class AbstractTrailModel extends Model {
   public void setTrailInfo(int code){
 
     switch(code) {
-      case CREATE:
+      case INSERT:
         create_time = DateUtil.now();
         create_user_id = 1;
       case UPDATE:

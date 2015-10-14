@@ -6,6 +6,7 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
+import models.QandaForm;
 
 /**
  * Qanda entity managed by Ebean
@@ -20,7 +21,7 @@ public class Qanda extends AbstractTrailModel {
     @Constraints.Required
     public String content;
     @Constraints.Required
-    public Integer is_question;
+    public Integer isQuestion;
 		@OneToMany(cascade = CascadeType.ALL)
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
     @ManyToMany
@@ -29,6 +30,17 @@ public class Qanda extends AbstractTrailModel {
 		public List<Comment> comments = new ArrayList<Comment>();
 		@OneToMany(cascade = CascadeType.ALL)
 		public List<Qanda> qandas = new ArrayList<Qanda>();
+		@ManyToOne(cascade = CascadeType.ALL)
+		public Qanda qanda;
+
+		public Qanda(){
+
+		}
+
+		public Qanda(QandaForm qf){
+			this.title = qf.title;
+			this.content = qf.content;
+		}
 
     /**
      * Generic query helper for entity Qanda with id Long
@@ -36,9 +48,18 @@ public class Qanda extends AbstractTrailModel {
     public static Finder<Long,Qanda> find = new Finder<Long,Qanda>(Long.class, Qanda.class);
 
 		/**
-		 * is_question=1をキーに、QANDAリストを取得する
+		 * isQuestion=1をキーに、QANDAリストを取得する
 		 */
 		public static List<Qanda> getQuestions(){
-			return find.where().eq("is_question", 1).findList();
+			return find.where().eq("isQuestion", 1).findList();
+		}
+
+		/**
+		 * フォームの保持する情報をEntityにセットする。
+		 * @param form Qandaフォーム
+		 */
+		public void setForm(QandaForm form){
+			this.title = form.title;
+			this.content = form.content;
 		}
 }

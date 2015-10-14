@@ -1,0 +1,7 @@
+@(tags: List[Tag])
+
+<div class="tags">
+  @for(tag <- tags){
+    <div class="tag-box">@tag.name</div>
+  }
+</div>

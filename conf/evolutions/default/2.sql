@@ -61,24 +61,24 @@ insert into user (id, name, password, is_active, create_time, create_user_id, up
   values (9, 'user9', 'password9', 1,'2015-08-01', 1, '2015-09-01', 1, 0);
 
 -- middle table
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (1, 1, 1, null, 'very long long long 長いタイトル', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (2, 2, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (3, 3, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (4, 4, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (5, 5, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (6, 6, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (7, 7, 0, 1, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (8, 8, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
-insert into qanda (id, user_id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
-  values (9, 9, 0, 4, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (1, 1, null, 'very long long long 長いタイトル', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (2, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (3, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (4, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (5, 1, null, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (6, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (7, 0, 1, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (8, 0, 2, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
+insert into qanda (id, is_question, qanda_id, title, content, create_time, create_user_id, update_time, update_user_id, is_delete)
+  values (9, 0, 4, 'title', 'content1','2015-08-01', 1, '2015-09-01', 1, 0);
 
 -- most lowest table
 insert into comment (id, qanda_id, comment, create_time, create_user_id, update_time, update_user_id, is_delete)

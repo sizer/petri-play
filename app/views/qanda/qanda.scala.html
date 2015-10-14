@@ -1,15 +1,40 @@
 @(faq: Qanda)
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
   <h2>@faq.title</h2>
-  <div>
-    @faq.content
+  <div class="qanda-main">
+    <table>
+      <tr>
+        <td class="evaluation">
+          <a class="vote-up">△</a>
+          <div class="vote">
+            @faq.evaluations.size()
+          </div>
+          <a class="vote-down">▽</a>
+        </td>
+        <td class="question">
+          <div>
+            @faq.content
+          </div>
+          <div>
+            @faq.isQuestion
+          </div>
+          <div>
+            @faq.create_time
+          </div>
+          @helpers.tagList(faq.tags)
+          <div class="user-info">
+            <div class="updatetime">
+              @helpers.lastUpdate(faq)
+            </div>
+            <div>
+              @faq.create_user_id
+            </div>
+          </div>
+          <a class="link" href="@routes.QandaController.edit(faq.id)">更新</a>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div>
-    @faq.is_question
-  </div>
-  <div>
-    @faq.create_time
-  </div>
-  <a class="link" href="@routes.QandaController.update(faq.id)">更新</a>
 }
