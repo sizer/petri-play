@@ -10,57 +10,55 @@ import views.html.qanda.*;
 
 public class QandaController extends Controller{
   public static Result index(){
-    List<Qanda> faqList = Qanda.getQuestions();
-    return ok(index.render(faqList));
+    List<Qanda> questionList = Qanda.getQuestions();
+    return ok(index.render(questionList));
   }
 
   public static Result create(){
-    Form<QandaForm> f = new Form(QandaForm.class);
-    return ok(create.render(f, null));
+    Form<QandaForm> form = new Form(QandaForm.class);
+    return ok(create.render(form, null));
   }
 
   public static Result insert(){
-    Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
+    Form<QandaForm> form = new Form(QandaForm.class).bindFromRequest();
 
-    if(f.hasErrors()){
-      return ok(create.render(f, null));
+    if(form.hasErrors()){
+      return ok(create.render(form, null));
     }else{
-      QandaForm faqEntity = f.get();
-      Qanda qandaEntity = new Qanda(faqEntity);
-      qandaEntity.setTrailInfo(Qanda.INSERT);
-      qandaEntity.isQuestion = 1;
-      qandaEntity.save();
-      return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
+      QandaForm input = form.get();
+      Qanda entity = new Qanda(input);
+      entity.setTrailInfo(Qanda.INSERT);
+      entity.isQuestion = 1;
+      entity.save();
+      return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
 
   public static Result show(Long id){
-    Qanda faqEntity = Qanda.find.byId(id);
-    return ok(qanda.render(faqEntity));
+    Qanda entity = Qanda.find.byId(id);
+    return ok(qanda.render(entity));
   }
 
   public static Result edit(Long id){
-    Form<QandaForm> faqForm = new Form(QandaForm.class);
+    Form<QandaForm> form = new Form(QandaForm.class);
     QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
-    faqForm = faqForm.fill(faqEntity);
-    return ok(create.render(faqForm, id));
+    form = form.fill(faqEntity);
+    return ok(create.render(form, id));
   }
 
   public static Result update(Long id){
-    Form<QandaForm> f = new Form(QandaForm.class).bindFromRequest();
+    Form<QandaForm> form = new Form(QandaForm.class).bindFromRequest();
 
-    if(f.hasErrors()){
-      System.out.println("hasError");
-      System.out.println(f);
-      return ok(create.render(f, id));
+    if(form.hasErrors()){
+      return ok(create.render(form, id));
     }else{
-      QandaForm faqEntity = f.get();
-      Qanda qandaEntity = Qanda.find.byId(id);
-      qandaEntity.setForm(faqEntity);
-      qandaEntity.setTrailInfo(Qanda.UPDATE);
-      qandaEntity.save();
-      qandaEntity.setUserInfo();
-      return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
+      QandaForm faqEntity = form.get();
+      Qanda entity = Qanda.find.byId(id);
+      entity.setForm(faqEntity);
+      entity.setTrailInfo(Qanda.UPDATE);
+      entity.save();
+      entity.setUserInfo();
+      return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
 
