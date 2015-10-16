@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * Roll entity managed by Ebean
  */
 @Entity
-public class Roll extends AbstractTrailModel {
+public class Roll extends AbstractTrailModel<Roll> {
 
 	  @Id
     public Long id;

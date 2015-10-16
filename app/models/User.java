@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * User entity managed by Ebean
  */
 @Entity
-public class User extends AbstractTrailModel {
+public class User extends AbstractTrailModel<User> {
 
 	  @Id
     public Long id;
@@ -21,7 +21,7 @@ public class User extends AbstractTrailModel {
 		public String password;
 		@Constraints.Required
 		public Integer is_active;
-		@OneToMany(cascade = CascadeType.ALL)
+		@OneToMany(cascade = CascadeType.ALL, mappedBy = "createUser")
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
 		@ManyToMany
     public List<Roll> rolls = new ArrayList<Roll>();

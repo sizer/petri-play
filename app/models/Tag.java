@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * Tag entity managed by Ebean
  */
 @Entity
-public class Tag extends AbstractTrailModel {
+public class Tag extends AbstractTrailModel<Tag> {
 
 	  @Id
     public Long id;

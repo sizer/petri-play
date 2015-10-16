@@ -1,0 +1,10 @@
+@(faq: Qanda)
+
+<div class="user-info">
+  <div class="updatetime">
+    @lastUpdate(faq)
+  </div>
+  <div>
+    <a href="@routes.UserController.show(faq.createUser.id)">@faq.createUser.name</a>
+  </div>
+</div>

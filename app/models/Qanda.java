@@ -12,7 +12,7 @@ import models.QandaForm;
  * Qanda entity managed by Ebean
  */
 @Entity
-public class Qanda extends AbstractTrailModel {
+public class Qanda extends AbstractTrailModel<Qanda> {
 
 	  @Id
     public Long id;
@@ -41,6 +41,11 @@ public class Qanda extends AbstractTrailModel {
 			this.title = qf.title;
 			this.content = qf.content;
 		}
+
+		public void setUserInfo(){
+      this.createUser = User.find.byId((long)this.create_user_id);
+      this.updateUser = User.find.byId((long)this.update_user_id);
+    }
 
     /**
      * Generic query helper for entity Qanda with id Long

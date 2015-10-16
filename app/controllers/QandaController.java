@@ -51,7 +51,7 @@ public class QandaController extends Controller{
 
     if(f.hasErrors()){
       System.out.println("hasError");
-      System.out.println(f);      
+      System.out.println(f);
       return ok(create.render(f, id));
     }else{
       QandaForm faqEntity = f.get();
@@ -59,6 +59,7 @@ public class QandaController extends Controller{
       qandaEntity.setForm(faqEntity);
       qandaEntity.setTrailInfo(Qanda.UPDATE);
       qandaEntity.save();
+      qandaEntity.setUserInfo();
       return ok(qanda.render(Qanda.find.byId(qandaEntity.id)));
     }
   }

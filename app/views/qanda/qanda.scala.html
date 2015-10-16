@@ -24,14 +24,7 @@
             @faq.create_time
           </div>
           @helpers.tagList(faq.tags)
-          <div class="user-info">
-            <div class="updatetime">
-              @helpers.lastUpdate(faq)
-            </div>
-            <div>
-              @faq.create_user_id
-            </div>
-          </div>
+          @helpers.userInfo(faq)
           <a class="link" href="@routes.QandaController.edit(faq.id)">更新</a>
         </td>
       </tr>

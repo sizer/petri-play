@@ -7,12 +7,13 @@ import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
 import utils.DateUtil;
+import models.User;
 
 /**
  * abstract model defining common column
  */
 @Entity
-public abstract class AbstractTrailModel extends Model {
+public abstract class AbstractTrailModel <T> extends Model {
 
     public static final int INSERT = 1;
     public static final int UPDATE = 2;
@@ -30,6 +31,11 @@ public abstract class AbstractTrailModel extends Model {
     public Integer update_user_id;
     @Constraints.Required
 		public Integer is_delete;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    public User createUser;
+    @ManyToOne(cascade = CascadeType.ALL)
+    public User updateUser;
 
   /**
    * 最終更新からの経過時間を取得する。

@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * Comment entity managed by Ebean
  */
 @Entity
-public class Comment extends AbstractTrailModel {
+public class Comment extends AbstractTrailModel<Comment> {
 
 	  @Id
     public Long id;
