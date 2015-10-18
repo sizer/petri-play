@@ -25,18 +25,15 @@
   height: 55px;
   float: left;
 }
+.qanda-summary .summary .user-info {
+  float: right;
+}
 .qanda-summary .summary .title {
   width: 530px;
   height: 20px;
 }
 .qanda-summary .summary .tags {
   float: left;
-}
-.qanda-summary .summary .updatetime {
-  float: right;
-}
-.qanda-summary .summary .updateuser {
-  float: right;
 }
 .tag-box {
   color: #3e6d8e;

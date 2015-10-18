@@ -2,7 +2,8 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-import views.html.*;
+import models.User;
+import views.html.user.*;
 
 public class UserController extends Controller{
   public static Result index(){
@@ -18,7 +19,8 @@ public class UserController extends Controller{
   }
 
   public static Result show(Long id){
-    return null;
+    User entity = User.find.byId(id);
+    return ok(user.render(entity));
   }
 
   public static Result edit(Long id){

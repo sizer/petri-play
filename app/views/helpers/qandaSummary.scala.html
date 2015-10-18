@@ -9,12 +9,7 @@
         <a class="link" href="@routes.QandaController.show(qanda.id)">@qanda.title</a>
       </div>
       @tagList(qanda.tags)
-      <div class="updateuser">
-        <a class="link" href="@routes.UserController.show(qanda.update_user_id.longValue())">@qanda.update_user_id</a>
-      </div>
-      <div class="updatetime">
-        @lastUpdate(qanda)
-      </div>
+      @helpers.userInfo(qanda)
     </div>
   </div>
 }
