@@ -1,10 +1,18 @@
 @(user: User)
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/user.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
-  <div>
-    <div>
-      <span>@user.name</span>
+  <div class="user-top">
+    <div class="user-info">
+      <h2>@user.name</h2>
+    </div>
+    <div class="user-status">
+      <div class="answers">@user.getAnswerSize()<br/>回答</div>
+      <div class="questions">@user.getQuestionSize()<br/>質問</div>
+      <div></div>
     </div>
   </div>
+  <h4>@user.name の関係している質問</h4>
+  @helpers.qandaSummary(user.qandas)
 }

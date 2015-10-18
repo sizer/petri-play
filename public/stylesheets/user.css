@@ -1,0 +1,28 @@
+.user-top  {
+  width: 80%;
+  height: 30%;
+}
+
+.user-top .user-info {
+  float: left;
+}
+
+.user-top .user-status {
+  float: right;
+}
+
+.user-top .user-status .answers{
+  float: left;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  padding: 5px 5px 5px 5px;
+}
+
+.user-top .user-status .questions{
+  float: left;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  padding: 5px 5px 5px 5px;
+}

@@ -23,6 +23,8 @@ public class User extends AbstractTrailModel {
 		public Integer is_active;
 		@OneToMany(cascade = CascadeType.ALL, mappedBy = "createUser")
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
+		@OneToMany(cascade = CascadeType.ALL, mappedBy ="createUser")
+		public List<Qanda> qandas = new ArrayList<Qanda>();
 		@ManyToMany
     public List<Roll> rolls = new ArrayList<Roll>();
 
@@ -33,6 +35,26 @@ public class User extends AbstractTrailModel {
 
 		public static String getUserName(Long id){
 			return find.byId(id).name;
+		}
+
+		public Integer getQuestionSize(){
+			int count = 0;
+			for(Qanda q : qandas){
+				if(q.isQuestion == 1){
+					count++;
+				}
+			}
+			return count;
+		}
+
+		public Integer getAnswerSize(){
+			int count = 0;
+			for(Qanda q : qandas){
+				if(q.isQuestion == 0){
+					count++;
+				}
+			}
+			return count;
 		}
 
 		public static User createTestUser(){
