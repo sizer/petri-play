@@ -6,6 +6,7 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
   cache,
+  filters,
   "org.projectlombok" % "lombok" % "1.16.6"
 )
 

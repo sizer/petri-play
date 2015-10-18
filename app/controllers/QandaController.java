@@ -3,12 +3,16 @@ package controllers;
 import java.util.*;
 import play.*;
 import play.mvc.*;
+import play.mvc.Security.Authenticated;
 import play.data.*;
 import models.Qanda;
 import models.QandaForm;
 import views.html.qanda.*;
+import services.PetriAuthenticator;
 
+@Authenticated(PetriAuthenticator.class)
 public class QandaController extends Controller{
+
   public static Result index(){
     List<Qanda> questionList = Qanda.getQuestions();
     return ok(index.render(questionList));
