@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * Evaluation entity managed by Ebean
  */
 @Entity
-public class Evaluation extends AbstractTrailModel<Evaluation> {
+public class Evaluation extends AbstractTrailModel {
 
 	  @Id
     public Long id;

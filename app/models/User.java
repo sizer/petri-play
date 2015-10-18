@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
  * User entity managed by Ebean
  */
 @Entity
-public class User extends AbstractTrailModel<User> {
+public class User extends AbstractTrailModel {
 
 	  @Id
     public Long id;
@@ -33,6 +33,10 @@ public class User extends AbstractTrailModel<User> {
 
 		public static String getUserName(Long id){
 			return find.byId(id).name;
+		}
+
+		public static User createTestUser(){
+			return find.byId(1L);
 		}
 
 }

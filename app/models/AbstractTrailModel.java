@@ -13,7 +13,7 @@ import models.User;
  * abstract model defining common column
  */
 @Entity
-public abstract class AbstractTrailModel <T> extends Model {
+public abstract class AbstractTrailModel extends Model {
 
     public static final int INSERT = 1;
     public static final int UPDATE = 2;
@@ -22,20 +22,32 @@ public abstract class AbstractTrailModel <T> extends Model {
     @Constraints.Required
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date create_time;
+    @ManyToOne(cascade = CascadeType.ALL)
     @Constraints.Required
-		public Integer create_user_id;
+    public User createUser;
     @Constraints.Required
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date update_time;
+    @ManyToOne(cascade = CascadeType.ALL)
     @Constraints.Required
-    public Integer update_user_id;
+    public User updateUser;
     @Constraints.Required
 		public Integer is_delete;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    public User createUser;
-    @ManyToOne(cascade = CascadeType.ALL)
-    public User updateUser;
+    /**
+     * 保存処理
+     */
+    @Override
+    public void save(){
+      if(create_time != null){
+        setTrailInfo(UPDATE);
+        super.save();
+
+      }else{
+        setTrailInfo(INSERT);
+        super.save();
+      }
+    }
 
   /**
    * 最終更新からの経過時間を取得する。
@@ -56,15 +68,16 @@ public abstract class AbstractTrailModel <T> extends Model {
     switch(code) {
       case INSERT:
         create_time = DateUtil.now();
-        create_user_id = 1;
+        createUser = User.createTestUser();
       case UPDATE:
       case DELETE:
         update_time = DateUtil.now();
-        update_user_id = 1;
+        updateUser = User.createTestUser();
     }
 
     if(code == DELETE){
       is_delete = 1;
+
     }else{
       is_delete = 0;
     }

@@ -27,7 +27,6 @@ public class QandaController extends Controller{
     }else{
       QandaForm input = form.get();
       Qanda entity = new Qanda(input);
-      entity.setTrailInfo(Qanda.INSERT);
       entity.isQuestion = 1;
       entity.save();
       return ok(qanda.render(Qanda.find.byId(entity.id)));
@@ -55,9 +54,7 @@ public class QandaController extends Controller{
       QandaForm faqEntity = form.get();
       Qanda entity = Qanda.find.byId(id);
       entity.setForm(faqEntity);
-      entity.setTrailInfo(Qanda.UPDATE);
       entity.save();
-      entity.setUserInfo();
       return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
