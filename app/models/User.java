@@ -60,5 +60,4 @@ public class User extends AbstractTrailModel {
 		public static User createTestUser(){
 			return find.byId(1L);
 		}
-
 }
