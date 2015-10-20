@@ -3,7 +3,8 @@
 
 @layout.main("QANDA") {
   @if(id != null){
-    @form(action = routes.QandaController.update(1), args = 'class -> "faq-form"){
+    @form(action = routes.QandaController.update(id), args = 'class -> "faq-form"){
+      @CSRF.formField
       @inputText(field = faqForm("title"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @textarea(field = faqForm("content"), args = 'rows -> 20, 'cols -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @inputText(field = faqForm("inputTags"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])
@@ -11,6 +12,7 @@
     }
   }else{
     @form(action = routes.QandaController.insert, args = 'class -> "faq-form"){
+      @CSRF.formField
       @inputText(field = faqForm("title"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @textarea(field = faqForm("content"), args = 'rows -> 20, 'cols -> 120)(shared.pFieldConstructor, implicitly[Lang])
       @inputText(field = faqForm("inputTags"), args = 'size -> 120)(shared.pFieldConstructor, implicitly[Lang])

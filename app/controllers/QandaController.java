@@ -3,10 +3,13 @@ package controllers;
 import java.util.*;
 import play.*;
 import play.mvc.*;
+import play.filters.csrf.AddCSRFToken;
+import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Security.Authenticated;
 import play.data.*;
 import models.Qanda;
 import models.QandaForm;
+import models.User;
 import views.html.qanda.*;
 import services.PetriAuthenticator;
 
@@ -18,11 +21,13 @@ public class QandaController extends Controller{
     return ok(index.render(questionList));
   }
 
+  @AddCSRFToken
   public static Result create(){
     Form<QandaForm> form = new Form(QandaForm.class);
     return ok(create.render(form, null));
   }
 
+  @RequireCSRFCheck
   public static Result insert(){
     Form<QandaForm> form = new Form(QandaForm.class).bindFromRequest();
 
@@ -32,7 +37,7 @@ public class QandaController extends Controller{
       QandaForm input = form.get();
       Qanda entity = new Qanda(input);
       entity.isQuestion = 1;
-      entity.save();
+      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
       return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
@@ -42,6 +47,7 @@ public class QandaController extends Controller{
     return ok(qanda.render(entity));
   }
 
+  @AddCSRFToken
   public static Result edit(Long id){
     Form<QandaForm> form = new Form(QandaForm.class);
     QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
@@ -49,6 +55,7 @@ public class QandaController extends Controller{
     return ok(create.render(form, id));
   }
 
+  @RequireCSRFCheck
   public static Result update(Long id){
     Form<QandaForm> form = new Form(QandaForm.class).bindFromRequest();
 
@@ -58,7 +65,7 @@ public class QandaController extends Controller{
       QandaForm faqEntity = form.get();
       Qanda entity = Qanda.find.byId(id);
       entity.setForm(faqEntity);
-      entity.save();
+      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
       return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
