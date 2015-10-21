@@ -38,13 +38,13 @@ public class QandaController extends Controller{
       Qanda entity = new Qanda(input);
       entity.isQuestion = 1;
       entity.save();
-      return ok(qanda.render(Qanda.find.byId(entity.id)));
+      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
     }
   }
 
   public static Result show(Long id){
     Qanda entity = Qanda.find.byId(id);
-    return ok(qanda.render(entity));
+    return ok(qanda.render(entity, new ArrayList<String>()));
   }
 
   @AddCSRFToken
@@ -53,7 +53,9 @@ public class QandaController extends Controller{
     Qanda qandaEntity = Qanda.find.byId(id);
 
     if(qandaEntity.createUser.id != User.find.where().eq("name", session("loginUser")).findUnique().id){
-      return ok(qanda.render(qandaEntity));
+      List<String> errMsgList = new ArrayList<>();
+      errMsgList.add("自分の投稿以外は編集できません。");
+      return ok(qanda.render(qandaEntity, errMsgList));
     }
 
     QandaForm faqEntity = new QandaForm(qandaEntity);
@@ -72,7 +74,7 @@ public class QandaController extends Controller{
       Qanda entity = Qanda.find.byId(id);
       entity.setForm(faqEntity);
       entity.save();
-      return ok(qanda.render(Qanda.find.byId(entity.id)));
+      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
     }
   }
 
