@@ -5,6 +5,8 @@ import javax.persistence.*;
 import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
+import play.mvc.Http.Context;
+import play.mvc.Http.Session;
 import com.avaje.ebean.*;
 
 /**
@@ -55,6 +57,14 @@ public class User extends AbstractTrailModel {
 				}
 			}
 			return count;
+		}
+
+		/**
+		 * 現在ログインしているユーザーのentityをセッションから取得する
+		 * @return ログインユーザーのentity
+		 */
+		public static User getLoginUser(){
+			return find.where().eq("name", Context.current().session().get("loginUser")).findUnique();
 		}
 
 		public static User createTestUser(){

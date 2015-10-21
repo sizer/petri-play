@@ -37,20 +37,28 @@ public class QandaController extends Controller{
       QandaForm input = form.get();
       Qanda entity = new Qanda(input);
       entity.isQuestion = 1;
-      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
-      return ok(qanda.render(Qanda.find.byId(entity.id)));
+      entity.save();
+      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
     }
   }
 
   public static Result show(Long id){
     Qanda entity = Qanda.find.byId(id);
-    return ok(qanda.render(entity));
+    return ok(qanda.render(entity, new ArrayList<String>()));
   }
 
   @AddCSRFToken
   public static Result edit(Long id){
     Form<QandaForm> form = new Form(QandaForm.class);
-    QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
+    Qanda qandaEntity = Qanda.find.byId(id);
+
+    if(qandaEntity.createUser.id != User.find.where().eq("name", session("loginUser")).findUnique().id){
+      List<String> errMsgList = new ArrayList<>();
+      errMsgList.add("自分の投稿以外は編集できません。");
+      return ok(qanda.render(qandaEntity, errMsgList));
+    }
+
+    QandaForm faqEntity = new QandaForm(qandaEntity);
     form = form.fill(faqEntity);
     return ok(create.render(form, id));
   }
@@ -65,8 +73,8 @@ public class QandaController extends Controller{
       QandaForm faqEntity = form.get();
       Qanda entity = Qanda.find.byId(id);
       entity.setForm(faqEntity);
-      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
-      return ok(qanda.render(Qanda.find.byId(entity.id)));
+      entity.save();
+      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
     }
   }
 

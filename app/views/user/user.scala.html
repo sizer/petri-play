@@ -13,6 +13,18 @@
       <div></div>
     </div>
   </div>
-  <h4>@user.name の関係している質問</h4>
-  @helpers.qandaSummary(user.qandas)
+  <!-- tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">質問</a></li>
+    <!--li><a href="#tab2" data-toggle="tab">回答</a></li-->
+  </ul>
+  <!-- tab contents -->
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <h4>@user.name の関係している質問</h4>
+      @helpers.qandaSummary(user.qandas)
+    </div>
+    <!--div class="tab-pane" id="tab2"-->
+    </div>
+  </div>
 }
