@@ -1,0 +1,8 @@
+@(errMsgList: List[String])
+
+@for(errMsg <- errMsgList){
+  <div class="alert alert-danger" role="alert">
+    <span class="sr-only">Error:</span>
+    @errMsg
+  </div>
+}

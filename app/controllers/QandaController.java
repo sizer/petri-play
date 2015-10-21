@@ -52,7 +52,7 @@ public class QandaController extends Controller{
     Form<QandaForm> form = new Form(QandaForm.class);
     Qanda qandaEntity = Qanda.find.byId(id);
 
-    if(qandaEntity.createUser.id != User.find.where().eq("name", session("loginUser")).findUnique().id){
+    if(qandaEntity.createUser.id != User.getLoginUser().id){
       List<String> errMsgList = new ArrayList<>();
       errMsgList.add("自分の投稿以外は編集できません。");
       return ok(qanda.render(qandaEntity, errMsgList));

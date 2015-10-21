@@ -1,13 +1,8 @@
-@(faq: Qanda, messages: List[String])
+@(faq: Qanda, errMsgList: List[String])
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
-  @for(message <- messages){
-    <div class="alert alert-danger" role="alert">
-      <span class="sr-only">Error:</span>
-      @message
-    </div>
-  }
+  @helpers.errMsgList(errMsgList)
   <h2>@faq.title</h2>
   <div class="qanda-main">
     <table>
