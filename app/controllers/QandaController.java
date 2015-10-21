@@ -37,7 +37,7 @@ public class QandaController extends Controller{
       QandaForm input = form.get();
       Qanda entity = new Qanda(input);
       entity.isQuestion = 1;
-      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
+      entity.save();
       return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }
@@ -50,7 +50,13 @@ public class QandaController extends Controller{
   @AddCSRFToken
   public static Result edit(Long id){
     Form<QandaForm> form = new Form(QandaForm.class);
-    QandaForm faqEntity = new QandaForm(Qanda.find.byId(id));
+    Qanda qandaEntity = Qanda.find.byId(id);
+
+    if(qandaEntity.createUser.id != User.find.where().eq("name", session("loginUser")).findUnique().id){
+      return ok(qanda.render(qandaEntity));
+    }
+
+    QandaForm faqEntity = new QandaForm(qandaEntity);
     form = form.fill(faqEntity);
     return ok(create.render(form, id));
   }
@@ -65,7 +71,7 @@ public class QandaController extends Controller{
       QandaForm faqEntity = form.get();
       Qanda entity = Qanda.find.byId(id);
       entity.setForm(faqEntity);
-      entity.save(User.find.where().eq("name", session("loginUser")).findUnique());
+      entity.save();
       return ok(qanda.render(Qanda.find.byId(entity.id)));
     }
   }

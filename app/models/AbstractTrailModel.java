@@ -37,13 +37,14 @@ public abstract class AbstractTrailModel extends Model {
     /**
      * 保存処理
      */
-    public void save(User loginUser){
+    @Override
+    public void save(){
       if(create_time != null){
-        setTrailInfo(UPDATE, loginUser);
+        setTrailInfo(UPDATE);
         super.save();
 
       }else{
-        setTrailInfo(INSERT, loginUser);
+        setTrailInfo(INSERT);
         super.save();
       }
     }
@@ -62,16 +63,16 @@ public abstract class AbstractTrailModel extends Model {
    * 設定されるカラム...create_time/create_user_id.update_time/update_user_id
    * </pre>
    */
-  public void setTrailInfo(int code, User loginUser){
+  public void setTrailInfo(int code){
 
     switch(code) {
       case INSERT:
         create_time = DateUtil.now();
-        createUser = loginUser;
+        createUser = User.getLoginUser();
       case UPDATE:
       case DELETE:
         update_time = DateUtil.now();
-        updateUser = loginUser;
+        updateUser = User.getLoginUser();
     }
 
     if(code == DELETE){
