@@ -25,7 +25,7 @@ POST    /qandas                      controllers.QandaController.insert()
 GET     /qandas/:id                  controllers.QandaController.show(id:Long)
 GET     /qandas/:id/edit             controllers.QandaController.edit(id:Long)
 POST    /qandas/:id                  controllers.QandaController.update(id:Long)
-POST    /qandas/:id/delete           controllers.QandaController.delete(id:Long)
+GET    /qandas/:id/delete           controllers.QandaController.delete(id:Long)
 
 # Tag data access set
 GET     /tags                        controllers.TagController.index()

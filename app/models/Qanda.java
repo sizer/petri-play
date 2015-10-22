@@ -30,7 +30,7 @@ public class Qanda extends AbstractTrailModel {
 		public List<Comment> comments = new ArrayList<Comment>();
 		@OneToMany(cascade = CascadeType.ALL)
 		public List<Qanda> qandas = new ArrayList<Qanda>();
-		@ManyToOne(cascade = CascadeType.ALL)
+		@ManyToOne
 		public Qanda qanda;
 
 		public Qanda(){

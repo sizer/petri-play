@@ -2,9 +2,12 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.mvc.Security.Authenticated;
 import models.User;
+import services.PetriAuthenticator;
 import views.html.user.*;
 
+@Authenticated(PetriAuthenticator.class)
 public class UserController extends Controller{
   public static Result index(){
     return null;

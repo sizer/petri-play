@@ -52,7 +52,7 @@ public class QandaController extends Controller{
     Form<QandaForm> form = new Form(QandaForm.class);
     Qanda qandaEntity = Qanda.find.byId(id);
 
-    if(qandaEntity.createUser.id != User.find.where().eq("name", session("loginUser")).findUnique().id){
+    if(qandaEntity.createUser.id != User.getLoginUser().id){
       List<String> errMsgList = new ArrayList<>();
       errMsgList.add("自分の投稿以外は編集できません。");
       return ok(qanda.render(qandaEntity, errMsgList));
@@ -79,7 +79,15 @@ public class QandaController extends Controller{
   }
 
   public static Result delete(Long id){
-    return null;
+    Qanda q = Qanda.find.byId(id);
+    if(q.createUser.id != User.getLoginUser().id){
+      List<String> errMsgList = new ArrayList<>();
+      errMsgList.add("自分の投稿以外は削除できません。");
+      return ok(qanda.render(q, errMsgList));
+    }
+    q.delete();
+    List<Qanda> questionList = Qanda.getQuestions();
+    return ok(index.render(questionList));
   }
 
   public static Result search(String keyword){
