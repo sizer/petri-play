@@ -22,13 +22,13 @@ public abstract class AbstractTrailModel extends Model {
     @Constraints.Required
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date create_time;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @Constraints.Required
     public User createUser;
     @Constraints.Required
     @Formats.DateTime(pattern="yyyy-MM-dd")
     public Date update_time;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @Constraints.Required
     public User updateUser;
     @Constraints.Required
