@@ -1,4 +1,4 @@
-@(faq: Qanda, errMsgList: List[String])
+@(faq: entity.Qanda, errMsgList: List[String])
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/qanda.css")">
 
 @layout.main("QANDA") {
@@ -18,12 +18,6 @@
           <div>
             @faq.content
           </div>
-          <div>
-            @faq.isQuestion
-          </div>
-          <div>
-            @faq.create_time
-          </div>
           @helpers.tagList(faq.tags)
           @helpers.userInfo(faq)
           <br/>
@@ -33,5 +27,10 @@
         </td>
       </tr>
     </table>
+    @if(!faq.qandas.isEmpty()){
+      <h2>@faq.qandas.size() 件の回答</h2>
+      @helpers.answerList(faq.qandas)
+    }
+
   </div>
 }

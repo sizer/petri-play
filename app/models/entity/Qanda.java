@@ -1,18 +1,29 @@
-package models;
+package models.entity;
 
-import java.util.*;
-import javax.persistence.*;
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-import com.avaje.ebean.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import models.QandaForm;
+import play.data.validation.Constraints;
+import utils.ModelUtil;
 
 /**
  * Qanda entity managed by Ebean
  */
 @Entity
 public class Qanda extends AbstractTrailModel {
+
+	/**
+	 * serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
 
 	  @Id
     public Long id;
@@ -45,7 +56,7 @@ public class Qanda extends AbstractTrailModel {
     /**
      * Generic query helper for entity Qanda with id Long
      */
-    public static Finder<Long,Qanda> find = new Finder<Long,Qanda>(Long.class, Qanda.class);
+    public static Finder<Long,Qanda> find = ModelUtil.getFinder(Qanda.class);
 
 		/**
 		 * isQuestion=1をキーに、QANDAリストを取得する

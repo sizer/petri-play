@@ -7,11 +7,11 @@ import play.filters.csrf.AddCSRFToken;
 import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Security.Authenticated;
 import play.data.*;
-import models.Qanda;
 import models.QandaForm;
-import models.User;
+import models.entity.Qanda;
+import models.entity.User;
 import views.html.qanda.*;
-import services.PetriAuthenticator;
+import models.service.cmn.PetriAuthenticator;
 
 @Authenticated(PetriAuthenticator.class)
 public class QandaController extends Controller{

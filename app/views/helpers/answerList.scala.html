@@ -1,0 +1,25 @@
+@(answers: List[entity.Qanda])
+
+@for(answer <- answers){
+  <table>
+    <tr>
+      <td class="evaluation">
+        <a class="vote-up">△</a>
+        <div class="vote">
+          @answer.evaluations.size()
+        </div>
+        <a class="vote-down">▽</a>
+      </td>
+      <td>
+        <div>
+          @answer.content
+        </div>
+        @helpers.userInfo(answer)
+        <br/>
+        <br/>
+        <a class="link" href="@routes.QandaController.edit(answer.id)">更新</a>
+        <a class="link" href="@routes.QandaController.delete(answer.id)">削除</a>
+      </td>
+    </tr>
+  </table>
+}

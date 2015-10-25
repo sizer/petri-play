@@ -1,13 +1,14 @@
-package models;
+package models.entity;
 
-import java.util.*;
-import javax.persistence.*;
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-import com.avaje.ebean.*;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import play.data.format.Formats;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
 import utils.DateUtil;
-import models.User;
 
 /**
  * abstract model defining common column
@@ -15,7 +16,12 @@ import models.User;
 @Entity
 public abstract class AbstractTrailModel extends Model {
 
-    public static final int INSERT = 1;
+    /**
+	 * serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public static final int INSERT = 1;
     public static final int UPDATE = 2;
     public static final int DELETE = 3;
 
