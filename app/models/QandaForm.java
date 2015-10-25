@@ -2,7 +2,7 @@ package models;
 
 import models.entity.Qanda;
 import play.data.validation.*;
-import utils.Boolean;
+import utils.BooleanUtil;
 
 public class QandaForm{
   @Constraints.Required
@@ -23,6 +23,6 @@ public class QandaForm{
   public QandaForm(Qanda q){
     this.title = q.title;
     this.content = q.content;
-    this.isQuestion = Boolean.toBool(q.isQuestion);
+    this.isQuestion = BooleanUtil.toBool(q.isQuestion);
   }
 }
