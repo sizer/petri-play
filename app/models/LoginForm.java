@@ -1,6 +1,7 @@
 package models;
 
 import play.data.validation.Constraints;
+import models.entity.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import lombok.Getter;
@@ -26,8 +27,6 @@ public class LoginForm {
     if (password != null){
       try{
         hashedPassword = sha512(password);
-        System.out.println("password:"+password);
-        System.out.println("hashedPassword:"+hashedPassword);
       } catch(NoSuchAlgorithmException e){
         throw new RuntimeException();
       }

@@ -1,5 +1,6 @@
 package models;
 
+import models.entity.Qanda;
 import play.data.validation.*;
 import utils.Boolean;
 

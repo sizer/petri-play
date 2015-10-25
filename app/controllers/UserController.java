@@ -3,7 +3,7 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.mvc.Security.Authenticated;
-import models.User;
+import models.entity.User;
 import services.PetriAuthenticator;
 import views.html.user.*;
 

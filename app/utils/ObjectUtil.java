@@ -18,6 +18,5 @@ public class ObjectUtil {
             sb.append(field.getName() + " = " + "access denied\n");
         }
     }
-    System.out.println(sb.toString());
   }
 }

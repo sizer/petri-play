@@ -1,4 +1,4 @@
-package models;
+package models.entity;
 
 import java.util.*;
 import javax.persistence.*;
@@ -7,7 +7,7 @@ import play.data.format.*;
 import play.data.validation.*;
 import com.avaje.ebean.*;
 import utils.DateUtil;
-import models.User;
+import models.entity.User;
 
 /**
  * abstract model defining common column
