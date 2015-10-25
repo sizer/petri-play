@@ -10,7 +10,7 @@ import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Security.Authenticated;
 import views.html.*;
 import views.html.login.*;
-import services.PetriAuthenticator;
+import models.service.cmn.PetriAuthenticator;
 
 public class LoginController extends Controller {
 

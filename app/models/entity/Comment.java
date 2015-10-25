@@ -1,11 +1,9 @@
 package models.entity;
 
-import java.util.*;
-import javax.persistence.*;
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-import com.avaje.ebean.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import play.data.validation.Constraints;
 
 /**
  * Comment entity managed by Ebean
@@ -13,7 +11,12 @@ import com.avaje.ebean.*;
 @Entity
 public class Comment extends AbstractTrailModel {
 
-	  @Id
+    /**
+	 * serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     public Long id;
     @Constraints.Required
     public String comment;

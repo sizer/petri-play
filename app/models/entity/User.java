@@ -1,19 +1,27 @@
 package models.entity;
 
-import java.util.*;
-import javax.persistence.*;
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import play.data.validation.Constraints;
 import play.mvc.Http.Context;
-import play.mvc.Http.Session;
-import com.avaje.ebean.*;
 
 /**
  * User entity managed by Ebean
  */
 @Entity
 public class User extends AbstractTrailModel {
+
+    /**
+	 * serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
 
 	  @Id
     public Long id;

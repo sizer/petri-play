@@ -1,4 +1,4 @@
-package services;
+package models.service.cmn;
 
 import play.mvc.Http.Context;
 import play.mvc.Result;

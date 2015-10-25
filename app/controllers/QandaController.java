@@ -11,7 +11,7 @@ import models.QandaForm;
 import models.entity.Qanda;
 import models.entity.User;
 import views.html.qanda.*;
-import services.PetriAuthenticator;
+import models.service.cmn.PetriAuthenticator;
 
 @Authenticated(PetriAuthenticator.class)
 public class QandaController extends Controller{

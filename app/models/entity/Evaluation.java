@@ -1,17 +1,20 @@
 package models.entity;
 
-import java.util.*;
-import javax.persistence.*;
-import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-import com.avaje.ebean.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import play.data.validation.Constraints;
 
 /**
  * Evaluation entity managed by Ebean
  */
 @Entity
 public class Evaluation extends AbstractTrailModel {
+
+    /**
+	 * serial version ID
+	 */
+	private static final long serialVersionUID = 1L;
 
 	  @Id
     public Long id;
