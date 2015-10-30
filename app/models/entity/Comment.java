@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.data.validation.Constraints;
-import utils.ModelUtil;
 
 /**
  * Comment entity managed by Ebean
@@ -25,6 +24,6 @@ public class Comment extends AbstractTrailModel {
     /**
      * Generic query helper for entity Comment with id Long
      */
-    public static Finder<Long,Comment> find = ModelUtil.getFinder(Comment.class);
+    public static Finder<Long,Comment> find = new Finder<Long,Comment>(Long.class, Comment.class);
 
 }
