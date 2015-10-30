@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 
 import play.data.validation.Constraints;
 import play.mvc.Http.Context;
-import utils.ModelUtil;
 
 /**
  * User entity managed by Ebean
@@ -42,7 +41,7 @@ public class User extends AbstractTrailModel {
     /**
      * Generic query helper for entity User with id Long
      */
-    public static Finder<Long,User> find = ModelUtil.getFinder(User.class);
+    public static Finder<Long,User> find = new Finder<Long,User>(Long.class, User.class);
 
 		public static String getUserName(Long id){
 			return find.byId(id).name;
