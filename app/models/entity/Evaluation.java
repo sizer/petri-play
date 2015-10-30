@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.data.validation.Constraints;
+import utils.ModelUtil;
 
 /**
  * Evaluation entity managed by Ebean
@@ -24,6 +25,6 @@ public class Evaluation extends AbstractTrailModel {
     /**
      * Generic query helper for entity Evaluation with id Long
      */
-    public static Finder<Long,Evaluation> find = new Finder<Long,Evaluation>(Long.class, Evaluation.class);
+    public static Finder<Long,Evaluation> find = ModelUtil.getFinder(Evaluation.class);
 
 }

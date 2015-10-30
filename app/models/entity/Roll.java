@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import play.data.validation.Constraints;
+import utils.ModelUtil;
 
 /**
  * Roll entity managed by Ebean
@@ -24,6 +25,6 @@ public class Roll extends AbstractTrailModel {
     /**
      * Generic query helper for entity Roll with id Long
      */
-    public static Finder<Long,Roll> find = new Finder<Long,Roll>(Long.class, Roll.class);
+    public static Finder<Long,Roll> find = ModelUtil.getFinder(Roll.class);
 
 }
