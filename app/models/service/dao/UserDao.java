@@ -8,7 +8,7 @@ public class UserDao extends BaseDao<User> {
 
   private UserDao(){
     if(find == null) {
-        Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
+        super.find = new Finder<Long, User>(Long.class, User.class);
     }
   }
 

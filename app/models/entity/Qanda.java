@@ -51,13 +51,6 @@ public class Qanda extends AbstractTrailModel {
 		}
 
 		/**
-		 * isQuestion=1をキーに、QANDAリストを取得する
-		 */
-		public static List<Qanda> getQuestions(){
-			return QandaDao.use().getFind().where().eq("isQuestion", 1).findList();
-		}
-
-		/**
 		 * フォームの保持する情報をEntityにセットする。
 		 * @param form Qandaフォーム
 		 */

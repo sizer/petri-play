@@ -9,11 +9,11 @@ public class QandaDao extends BaseDao<Qanda> {
 
   private QandaDao(){
     if(find == null) {
-        Finder<Long, Qanda> find = new Finder<Long, Qanda>(Long.class, Qanda.class);
+      super.find = new Finder<Long, Qanda>(Long.class, Qanda.class);
     }
   }
 
   public static QandaDao use() {
-      return new QandaDao();
+    return new QandaDao();
   }
 }

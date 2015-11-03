@@ -24,10 +24,6 @@ public abstract class AbstractTrailModel extends Model {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public static final int INSERT = 1;
-    public static final int UPDATE = 2;
-    public static final int DELETE = 3;
-
 		@Id @Getter
     public Long id;
     @Required
@@ -45,52 +41,11 @@ public abstract class AbstractTrailModel extends Model {
     @Required
 		public Integer is_delete;
 
-    /**
-     * 保存処理
-     */
-    @Override
-    public void save(){
-      if(create_time != null){
-        setTrailInfo(UPDATE);
-        super.save();
-
-      }else{
-        setTrailInfo(INSERT);
-        super.save();
-      }
-    }
-
   /**
    * 最終更新からの経過時間を取得する。
    * @return 最終更新からの経過時間
    */
   public String getSinceLastUpdate(){
     return DateUtil.howLongFromNow(update_time);
-  }
-
-  /**
-   * <pre>
-   * 追跡情報をセットする。
-   * 設定されるカラム...create_time/create_user_id.update_time/update_user_id
-   * </pre>
-   */
-  public void setTrailInfo(int code){
-
-    switch(code) {
-      case INSERT:
-        create_time = DateUtil.now();
-        createUser = User.getLoginUser();
-      case UPDATE:
-      case DELETE:
-        update_time = DateUtil.now();
-        updateUser = User.getLoginUser();
-    }
-
-    if(code == DELETE){
-      is_delete = 1;
-
-    }else{
-      is_delete = 0;
-    }
   }
 }
