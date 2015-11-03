@@ -9,6 +9,7 @@ import play.mvc.Security.Authenticated;
 import play.data.*;
 import models.QandaForm;
 import models.service.dao.QandaDao;
+import models.service.qanda.QandaService;
 import models.entity.Qanda;
 import models.entity.User;
 import views.html.qanda.*;
@@ -19,7 +20,7 @@ public class QandaController extends Controller{
   static QandaDao dao = QandaDao.use();
 
   public static Result index(){
-    List<Qanda> questionList = Qanda.getQuestions();
+    List<Qanda> questionList = QandaService.getQuestions();
     return ok(index.render(questionList));
   }
 
@@ -38,8 +39,7 @@ public class QandaController extends Controller{
     }else{
       QandaForm input = form.get();
       Qanda entity = new Qanda(input);
-      entity.isQuestion = 1;
-      entity.save();
+      QandaService.insertQanda(entity);
       return ok(qanda.render(dao.findById(entity.id).get(), new ArrayList<String>()));
     }
   }
@@ -88,7 +88,7 @@ public class QandaController extends Controller{
       return ok(qanda.render(q, errMsgList));
     }
     q.delete();
-    List<Qanda> questionList = Qanda.getQuestions();
+    List<Qanda> questionList = QandaService.getQuestions();
     return ok(index.render(questionList));
   }
 
