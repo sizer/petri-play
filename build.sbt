@@ -4,9 +4,10 @@ version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   javaJdbc,
-  javaEbean,
+  javaJpa,
   cache,
   filters,
+  "org.eclipse.persistence" % "eclipselink" % "2.5.2",
   "org.projectlombok" % "lombok" % "1.16.6"
 )
 

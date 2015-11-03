@@ -6,7 +6,7 @@ public class Global extends GlobalSettings {
   /**
    * CSRFフィルター
    * @param <T>
-   * @return
+   * @return 
    */
   @Override
   public <T extends EssentialFilter> Class<T>[] filters(){

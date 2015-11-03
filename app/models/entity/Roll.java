@@ -1,30 +1,21 @@
 package models.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import play.data.validation.Constraints;
-import utils.ModelUtil;
 
 /**
  * Roll entity managed by Ebean
  */
 @Entity
-public class Roll extends AbstractTrailModel {
+public class Roll extends AbstractTrailEntity {
 
-    /**
-	 * serial version ID
-	 */
-	private static final long serialVersionUID = 1L;
-
-	  @Id
-    public Long id;
-		@Constraints.Required
-		public String name;
-
-    /**
-     * Generic query helper for entity Roll with id Long
-     */
-    public static Finder<Long,Roll> find = ModelUtil.getFinder(Roll.class);
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	public Long id;
+	@Constraints.Required
+	public String name;
 }

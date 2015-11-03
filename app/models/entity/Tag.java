@@ -1,30 +1,24 @@
 package models.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import play.data.validation.Constraints;
-import utils.ModelUtil;
 
 /**
  * Tag entity managed by Ebean
  */
 @Entity
-public class Tag extends AbstractTrailModel {
+public class Tag extends AbstractTrailEntity {
 
-    /**
-	 * serial version ID
-	 */
-	private static final long serialVersionUID = 1L;
-
-	  @Id
-    public Long id;
-    @Constraints.Required
-    public String name;
-
-    /**
-     * Generic query helper for entity Tag with id Long
-     */
-    public static Finder<Long,Tag> find = ModelUtil.getFinder(Tag.class);
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	public Long id;
+	@Constraints.Required
+	public String name;
 }

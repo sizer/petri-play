@@ -60,6 +60,7 @@ public class DateUtil{
    * @return     引数の日付から経過した時間
    */
   public static long getSince(Date arg){
+    if(arg == null) return 0L;
     return new Date(System.currentTimeMillis()).getTime() - arg.getTime();
   }
 }
