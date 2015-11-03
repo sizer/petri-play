@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 import play.mvc.Http.Context;
 import utils.ModelUtil;
 
@@ -26,11 +26,11 @@ public class User extends AbstractTrailModel {
 
 	  @Id
     public Long id;
-		@Constraints.Required
+		@Required
 		public String name;
-		@Constraints.Required
+		@Required
 		public String password;
-		@Constraints.Required
+		@Required
 		public Integer is_active;
 		@OneToMany(cascade = CascadeType.ALL, mappedBy = "createUser")
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();

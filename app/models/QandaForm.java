@@ -1,13 +1,13 @@
 package models;
 
 import models.entity.Qanda;
-import play.data.validation.*;
+import play.data.validation.Constraints.Required;
 import utils.BooleanUtil;
 
 public class QandaForm{
-  @Constraints.Required
+  @Required
   public String title;
-  @Constraints.Required
+  @Required
   public String content;
   public String inputTags;
   public boolean isQuestion;

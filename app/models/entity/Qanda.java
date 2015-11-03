@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import models.QandaForm;
-import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 import utils.ModelUtil;
 
 /**
@@ -27,11 +27,11 @@ public class Qanda extends AbstractTrailModel {
 
 	  @Id
     public Long id;
-    @Constraints.Required
+    @Required
     public String title;
-    @Constraints.Required
+    @Required
     public String content;
-    @Constraints.Required
+    @Required
     public Integer isQuestion;
 		@OneToMany(cascade = CascadeType.ALL)
 		public List<Evaluation> evaluations = new ArrayList<Evaluation>();
