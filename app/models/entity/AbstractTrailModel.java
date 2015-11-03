@@ -3,6 +3,7 @@ package models.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import play.data.format.Formats.DateTime;
@@ -10,6 +11,8 @@ import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 import utils.DateUtil;
 
+
+import lombok.Getter;
 /**
  * abstract model defining common column
  */
@@ -25,6 +28,8 @@ public abstract class AbstractTrailModel extends Model {
     public static final int UPDATE = 2;
     public static final int DELETE = 3;
 
+		@Id @Getter
+    public Long id;
     @Required
     @DateTime(pattern="yyyy-MM-dd")
     public Date create_time;

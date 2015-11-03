@@ -5,14 +5,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import models.QandaForm;
+import models.service.dao.QandaDao;
 import play.data.validation.Constraints.Required;
-import utils.ModelUtil;
 
 /**
  * Qanda entity managed by Ebean
@@ -25,8 +24,6 @@ public class Qanda extends AbstractTrailModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	  @Id
-    public Long id;
     @Required
     public String title;
     @Required
@@ -53,16 +50,11 @@ public class Qanda extends AbstractTrailModel {
 			this.content = qf.content;
 		}
 
-    /**
-     * Generic query helper for entity Qanda with id Long
-     */
-    public static Finder<Long,Qanda> find = ModelUtil.getFinder(Qanda.class);
-
 		/**
 		 * isQuestion=1をキーに、QANDAリストを取得する
 		 */
 		public static List<Qanda> getQuestions(){
-			return find.where().eq("isQuestion", 1).findList();
+			return QandaDao.use().getFind().where().eq("isQuestion", 1).findList();
 		}
 
 		/**

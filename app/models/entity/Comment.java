@@ -1,10 +1,8 @@
 package models.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 import play.data.validation.Constraints.Required;
-import utils.ModelUtil;
 
 /**
  * Comment entity managed by Ebean
@@ -17,14 +15,7 @@ public class Comment extends AbstractTrailModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-    public Long id;
     @Required
     public String comment;
-
-    /**
-     * Generic query helper for entity Comment with id Long
-     */
-    public static Finder<Long,Comment> find = ModelUtil.getFinder(Comment.class);
 
 }
