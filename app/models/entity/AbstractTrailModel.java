@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-import play.data.format.Formats;
-import play.data.validation.Constraints;
+import play.data.format.Formats.DateTime;
+import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 import utils.DateUtil;
 
@@ -20,24 +20,24 @@ public abstract class AbstractTrailModel extends Model {
 	 * serial version ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final int INSERT = 1;
     public static final int UPDATE = 2;
     public static final int DELETE = 3;
 
-    @Constraints.Required
-    @Formats.DateTime(pattern="yyyy-MM-dd")
+    @Required
+    @DateTime(pattern="yyyy-MM-dd")
     public Date create_time;
     @ManyToOne
-    @Constraints.Required
+    @Required
     public User createUser;
-    @Constraints.Required
-    @Formats.DateTime(pattern="yyyy-MM-dd")
+    @Required
+    @DateTime(pattern="yyyy-MM-dd")
     public Date update_time;
     @ManyToOne
-    @Constraints.Required
+    @Required
     public User updateUser;
-    @Constraints.Required
+    @Required
 		public Integer is_delete;
 
     /**

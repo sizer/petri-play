@@ -3,7 +3,7 @@ package models.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 import utils.ModelUtil;
 
 /**
@@ -19,7 +19,7 @@ public class Comment extends AbstractTrailModel {
 
 	@Id
     public Long id;
-    @Constraints.Required
+    @Required
     public String comment;
 
     /**

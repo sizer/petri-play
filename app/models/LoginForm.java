@@ -1,6 +1,6 @@
 package models;
 
-import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 import models.entity.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -10,9 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginForm {
-  @Constraints.Required
+  @Required
   private String name;
-  @Constraints.Required
+  @Required
   private String password;
 
   public String validate(){

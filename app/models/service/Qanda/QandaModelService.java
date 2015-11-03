@@ -42,7 +42,7 @@ public class QandaModelService implements ModelService<Qanda> {
         Option<Qanda> entryOps = OptionUtil.apply(entry);
         if(entryOps.isDefined()) {
             entry.save();
-            if(OptionUtil.apply(entry.getId()).isDefined()) {
+            if(OptionUtil.apply(entry.id).isDefined()) {
                 return OptionUtil.apply(entry);
             }
         }
