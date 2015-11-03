@@ -8,6 +8,7 @@ import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Security.Authenticated;
 import play.data.*;
 import models.QandaForm;
+import models.service.dao.QandaDao;
 import models.entity.Qanda;
 import models.entity.User;
 import views.html.qanda.*;
@@ -15,6 +16,7 @@ import models.service.cmn.PetriAuthenticator;
 
 @Authenticated(PetriAuthenticator.class)
 public class QandaController extends Controller{
+  static QandaDao dao = QandaDao.use();
 
   public static Result index(){
     List<Qanda> questionList = Qanda.getQuestions();
@@ -38,19 +40,19 @@ public class QandaController extends Controller{
       Qanda entity = new Qanda(input);
       entity.isQuestion = 1;
       entity.save();
-      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
+      return ok(qanda.render(dao.findById(entity.id).get(), new ArrayList<String>()));
     }
   }
 
   public static Result show(Long id){
-    Qanda entity = Qanda.find.byId(id);
+    Qanda entity = dao.findById(id).get();
     return ok(qanda.render(entity, new ArrayList<String>()));
   }
 
   @AddCSRFToken
   public static Result edit(Long id){
     Form<QandaForm> form = new Form(QandaForm.class);
-    Qanda qandaEntity = Qanda.find.byId(id);
+    Qanda qandaEntity = dao.findById(id).get();
 
     if(qandaEntity.createUser.id != User.getLoginUser().id){
       List<String> errMsgList = new ArrayList<>();
@@ -71,15 +73,15 @@ public class QandaController extends Controller{
       return ok(create.render(form, id));
     }else{
       QandaForm faqEntity = form.get();
-      Qanda entity = Qanda.find.byId(id);
+      Qanda entity = dao.findById(id).get();
       entity.setForm(faqEntity);
       entity.save();
-      return ok(qanda.render(Qanda.find.byId(entity.id), new ArrayList<String>()));
+      return ok(qanda.render(dao.findById(entity.id).get(), new ArrayList<String>()));
     }
   }
 
   public static Result delete(Long id){
-    Qanda q = Qanda.find.byId(id);
+    Qanda q = dao.findById(id).get();
     if(q.createUser.id != User.getLoginUser().id){
       List<String> errMsgList = new ArrayList<>();
       errMsgList.add("自分の投稿以外は削除できません。");

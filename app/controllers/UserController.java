@@ -4,11 +4,14 @@ import play.*;
 import play.mvc.*;
 import play.mvc.Security.Authenticated;
 import models.entity.User;
+import models.service.dao.UserDao;
 import models.service.cmn.PetriAuthenticator;
 import views.html.user.*;
 
 @Authenticated(PetriAuthenticator.class)
 public class UserController extends Controller{
+  private static UserDao dao = UserDao.use();
+
   public static Result index(){
     return null;
   }
@@ -22,7 +25,7 @@ public class UserController extends Controller{
   }
 
   public static Result show(Long id){
-    User entity = User.find.byId(id);
+    User entity = dao.findById(id).get();
     return ok(user.render(entity));
   }
 
