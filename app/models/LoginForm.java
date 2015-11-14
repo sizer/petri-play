@@ -2,6 +2,7 @@ package models;
 
 import play.data.validation.Constraints.Required;
 import models.entity.User;
+import models.service.dao.UserDao;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import lombok.Getter;
@@ -31,10 +32,7 @@ public class LoginForm {
         throw new RuntimeException();
       }
     }
-    return User.find.where()
-      .eq("name", name)
-      .eq("password", hashedPassword)
-      .findUnique();
+    return UserDao.use().getUser(name, hashedPassword);
   }
 
   public static String sha512(String message) throws NoSuchAlgorithmException{

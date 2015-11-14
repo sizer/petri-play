@@ -54,8 +54,8 @@ public class Qanda extends AbstractTrailModel {
 		 * フォームの保持する情報をEntityにセットする。
 		 * @param form Qandaフォーム
 		 */
-		public void setForm(QandaForm form){
-			this.title = form.title;
-			this.content = form.content;
+		public void setForm(String title, String content){
+			this.title = title;
+			this.content = content;
 		}
 }
