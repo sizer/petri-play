@@ -10,7 +10,7 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="./css/template.css"/>
         <title>Facelets Template</title>
     </h:head>
 
@@ -19,11 +19,11 @@
         <div id="top">
             <ui:insert name="top">Top</ui:insert>
         </div>
-        <div>
-            <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+        <div id="content">
+            <div id="right">
+                <ui:insert name="right">right</ui:insert>
             </div>
-            <div id="content" class="left_content">
+            <div id="jsf-content" class="right_content">
                 <ui:insert name="content">Content</ui:insert>
             </div>
         </div>
