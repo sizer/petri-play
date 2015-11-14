@@ -74,7 +74,7 @@ public class QandaController extends Controller{
     }else{
       QandaForm faqEntity = form.get();
       Qanda entity = dao.findById(id).get();
-      entity.setForm(faqEntity);
+      entity.setForm(faqEntity.title, faqEntity.content);
       entity.save();
       return ok(qanda.render(dao.findById(entity.id).get(), new ArrayList<String>()));
     }

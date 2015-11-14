@@ -15,4 +15,11 @@ public class UserDao extends BaseDao<User> {
   public static UserDao use() {
       return new UserDao();
   }
+
+  public User getUser(String name, String password){
+    return find.where()
+      .eq("name", name)
+      .eq("password", password)
+      .findUnique();
+  }
 }
