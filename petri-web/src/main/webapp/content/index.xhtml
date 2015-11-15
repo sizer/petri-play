@@ -7,9 +7,16 @@
 
     <ui:define name="content">
         <h:form>
-            <h:outputText id="text" value="#{indexBean.result}" />
+            <h:outputText id="text1" value="Json result:#{indexBean.result}" />
+            <br/>
+            <h:outputText id="text2" value="mapped result:#{indexBean.resultBean.id}" />
+            <br/>
+            <h:outputText id="text3" value="mapped result:#{indexBean.resultBean.teamName}" />
+            <br/>
+            <h:outputText id="text4" value="mapped result:#{indexBean.resultBean.members}" />
+            <br/>
             <h:commandButton value="sentRequest" action="#{indexBean.sentRequest}">
-                <p:ajax update="text"/>
+                <p:ajax update="text1 text2 text3 text4 "/>
             </h:commandButton>
         </h:form>
     </ui:define>

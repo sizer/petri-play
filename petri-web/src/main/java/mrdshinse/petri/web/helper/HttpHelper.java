@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
+import mrdshinse.petri.web.util.JsonUtil;
 import org.apache.http.HttpStatus;
 import org.apache.http.ParseException;
 import org.apache.http.client.config.RequestConfig;
@@ -115,7 +116,7 @@ public class HttpHelper {
     /**
      * Get HTTP response contents.
      *
-     * @return
+     * @return (String)response
      */
     public String getStringResponse() {
         String retStr;
@@ -125,6 +126,17 @@ public class HttpHelper {
             throw new RuntimeException(ex);
         }
         return retStr;
+    }
+
+    /**
+     * Get HTTP response contents.
+     *
+     * @param <T> type of bean
+     * @param bean type class of bean
+     * @return (Bean)response
+     */
+    public <T> T getBeanResponse(Class<T> bean) {
+        return JsonUtil.transformToBean(getStringResponse(), bean);
     }
 
     /**
