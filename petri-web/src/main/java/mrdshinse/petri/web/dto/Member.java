@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Member {
 
-    @JsonProperty("m_name")
+    @JsonProperty("member_name")
     public String memberName;
     public int age;
 
