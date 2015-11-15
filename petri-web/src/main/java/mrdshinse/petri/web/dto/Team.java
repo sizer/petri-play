@@ -1,25 +1,23 @@
 package mrdshinse.petri.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
+ * temp class of Jackson verification
  *
  * @author mrdShinse
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Team {
 
-    public Team() {
-    }
-
-    public Team(int id, String teamName, List<Member> members) {
-        this.id = id;
-        this.teamName = teamName;
-        this.members = members;
-    }
-
-    public int id;
-
-    public String teamName;
-
-    public List<Member> members;
+    private int id;
+    @JsonProperty("team_name")
+    private String teamName;
+    private List<Member> members;
 }
