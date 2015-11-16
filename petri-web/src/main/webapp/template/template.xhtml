@@ -17,18 +17,57 @@
     <h:body>
 
         <div id="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top">
+                <p:panelGrid>
+                    <p:row>
+                        <p:column>
+                            <p:commandLink value="PETRI"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="ようこそ、xxxxさん"/>
+                            <p:link value="ログイン" href="/content/login.xhtml"/>
+                            <p:commandLink value="ログアウト" action="#{template.logout()}"/>
+                            <p:inputText value="検索"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:panelGrid>
+                    <p:row>
+                        <p:column>
+                            <p:commandButton value="質問"/>
+                            <p:commandButton value="タグ"/>
+                            <p:commandButton value="質問する"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </ui:insert>
         </div>
         <div id="content">
             <div id="right">
-                <ui:insert name="right">right</ui:insert>
+                <ui:insert name="right">
+                    <p:panelGrid>
+                        <p:row>
+                            <p:column>
+                                <p:outputLabel value="お気に入りなどを表示する。"/><br/>
+                                <p:link value="index" href="/content/index.xhtml"/><br/>
+                                <p:link value="askQuestion" href="/content/askQuestion.xhtml"/><br/>
+                                <p:link value="questionDetail" href="/content/questionDetail.xhtml"/><br/>
+                                <p:link value="questionList" href="/content/questionsList.xhtml"/><br/>
+                                <p:link value="searchTags" href="/content/searchTags.xhtml"/><br/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </ui:insert>
             </div>
             <div id="jsf-content" class="right_content">
-                <ui:insert name="content">Content</ui:insert>
+                <ui:insert name="content">
+                </ui:insert>
             </div>
         </div>
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">
+                <p:outputLabel value="Petri"/>
+            </ui:insert>
         </div>
 
     </h:body>
