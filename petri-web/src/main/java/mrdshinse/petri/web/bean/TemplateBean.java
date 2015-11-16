@@ -13,4 +13,8 @@ import javax.inject.Named;
 @SessionScoped
 public class TemplateBean implements Serializable {
 
+    public String logout() {
+        //TODO execute logout
+        return "index.xhtml";
+    }
 }

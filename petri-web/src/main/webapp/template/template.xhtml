@@ -25,8 +25,8 @@
                         </p:column>
                         <p:column>
                             <p:outputLabel value="ようこそ、xxxxさん"/>
-                            <p:commandLink value="ログイン"/>
-                            <p:commandLink value="ログアウト"/>
+                            <p:link value="ログイン" href="/content/login.xhtml"/>
+                            <p:commandLink value="ログアウト" action="#{template.logout()}"/>
                             <p:inputText value="検索"/>
                         </p:column>
                     </p:row>
